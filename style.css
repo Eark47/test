@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #4a90e2;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(207, 180, 180, 0.1);
+}
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.radio-player-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.radio-player-container h2 {
+    margin-top: 0;
+    color: #4a90e2;
+}
+.radio-logo {
+    max-width: 80px; /* กำหนดความกว้างสูงสุดของรูปภาพ */
+    height: auto;     /* ให้ความสูงปรับตามอัตโนมัติเพื่อรักษาสัดส่วน */
+    margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
+}
+
+audio {
+    width: 100%;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
