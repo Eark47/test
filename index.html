@@ -3,30 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วิทยุออนไลน์ 104mhz</title>
+    <title>สถานีวิทยุออนไลน์อ.ส.พระราชวังดุสิต</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>สถานีวิทยุ อ.ส. พระราชวังดุสิต 104 mhz </h1>
-    </header>
-
-    <main>
-        <div class="radio-player-container">
-            <h2></h2>
-            <img src="1.jpg" alt="โลโก้วิทยุ" class="radio-logo">
-
-            <audio id="audio-player" controls autoplay>
-                <source src="https://asradio104mhz.radio12345.com" type="audio/mpeg">
-               
-            </audio>
+    <div class="media-player-container">
+        <div class="media-player-header">
+            <img src="1.jpg" alt="โลโก้วิทยุ" class="media-logo">
+            <div class="media-info">
+                <h2 class="station-name">สถานีวิทยุ อ.ส. พระราชวังดุสิต</h2>
+                <p class="track-info">เพลงที่กำลังเล่น: ชื่อเพลง</p>
+            </div>
         </div>
-    </main>
+        
+        <audio id="audio-player" src="URL_ของ_สตรีมมิ่ง_วิทยุ"></audio>
 
-    <footer>
-        <p>วิทยุออนไลน์</p>
-    </footer>
+        <div class="media-controls">
+            <button id="play-pause-btn" class="control-button">
+                <i class="fas fa-play"></i>
+            </button>
+            <div class="progress-bar-wrapper">
+                <div id="progress-bar"></div>
+            </div>
+            <div class="volume-controls">
+                <button id="mute-btn"><i class="fas fa-volume-up"></i></button>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="1">
+            </div>
+        </div>
+    </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
