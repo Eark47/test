@@ -119,10 +119,3 @@ body {
     cursor: pointer;
 }
 
-.volume-controls #mute-btn {
-    background: none;
-    border: none;
-    color: #7f8c8d;
-    font-size: 1.2em;
-    cursor: pointer;
-}
