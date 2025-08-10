@@ -3,25 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>สถานีวิทยุออนไลน์อ.ส.พระราชวังดุสิต</title>
+    <title>สถานีวิทยุ อ.ส. พระราชวังดุสิต</title>    
+    <link rel="stylesheet" href="style.css">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-    <div class="media-player-container">
-        <div class="media-player-header">
+<body>    
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-and-title">
+                <img src="https://placehold.co/60x60/3498db/ffffff?text=LOGO" alt="Radio Logo" class="logo">
+                <h1 class="header-title">สถานีวิทยุ อ.ส. พระราชวังดุสิต</h1>
+            </div>
+            <div class="header-right-side">
+            <!-- ลิงก์นำทางใหม่สำหรับหน้า "Contact" และ "About" -->
+            <div class="header-links">
+                <!-- ลิงก์สำหรับหน้า About ที่จะเปิดหน้าต่างใหม่ -->
+                <a href="#" class="header-link" target="_blank">About</a>
+                <!-- ลิงก์สำหรับหน้า Contact -->
+                <a href="#" class="header-link">Contact</a>
+            </div>
+            <div class="social-icons header-social-icons">
+                <a href="https://www.facebook.com" target="_blank" aria-label="Facebook Page" class="social-link facebook-link">
+                    <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
+                <a href="https://www.youtube.com" target="_blank" aria-label="YouTube Channel" class="social-link youtube-link">
+                    <i class="fa-brands fa-youtube fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </header>    
+    <main class="main-content">
+        <div class="main-card">
             <img src="1.jpg" alt="โลโก้วิทยุ" class="media-logo">
             <div class="media-info">
                 <h2 class="station-name">สถานีวิทยุ อ.ส. พระราชวังดุสิต</h2>
-                <p class="track-info">เพลงที่กำลังเล่น: ชื่อเพลง</p>
+                <p class="description"><i>ออกอากาศในคลื่นความถี่ 104mhz Am 1332khz <br>ออกอากาศทุกวันตั้งแต่เวลา 9.00-18.00</i></p>
+                <div class="audio-player-wrapper">
+                    <audio controls autoplay src="https://radio14.plathong.net/7028/;stream.mp3"></audio>
+                </div>
             </div>
         </div>
-        
-       <audio controls="controls" autoplay src="https://radio14.plathong.net/7028/;stream.mp3"></audio>
+   <div class="video-and-info-container">
+        <!-- กล่องแสดงวันที่ปัจจุบัน -->
+        <div class="date-card">
+            <h3 id="current-date">วันพฤหัสบดีที่ 1 มกราคม 2568</h3>
+        </div>
+        <!-- Video Player Card (Right Side) -->
+        <div class="video-player-card">
+            <h3 class="video-title"></h3>
+            <div class="video-wrapper">
+                <!-- Use a <video> tag for self-hosted videos -->
+          <video controls autoplay loop muted>
+                        <source src="video1.mp4" type="video/mp4">
+                        
+                    </video>
+            </div>
+        </div>
+    </main>
 
-    
-<script src="script.js"></script>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column logo-column">
+                <img src="1.jpg" alt="Footer Logo" class="footer-logo">
+            </div>
+            <div class="footer-column info-column">
+                <p class="footer-title">สถานีวิทยุ อ.ส. พระราชวังดุสิต สวนจิตรลดา</p>
+                <div class="footer-info-details">
+                    <p>ที่อยู่: สวนจิตรลดา แขวงดุสิต เขตดุสิต กรุงเทพมหานคร 10303</p>
+                    <p>โทรศัพท์: 02-999-900</p>
+                    <p>เว็บไซต์: asradio104mhz.vercel.app</p>
+                    <p>อีเมล: asradio104mhz@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-column contact-column">
+                <p class="footer-title">ติดตาม Asradio ได้ที่:</p>
+                <div class="social-icons footer-social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="social-link footer-facebook-link">
+                        <i class="fa-brands fa-facebook fa-xl"></i>
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank" class="social-link footer-youtube-link">
+                        <i class="fa-brands fa-youtube fa-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+        สถานีวิทยุ อ.ส. พระราชวังดุสิต
+        </div>
+    </footer>
+     <script src="script.js"></script>
     
 </body>
 </html>

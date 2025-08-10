@@ -1,41 +1,167 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
-
+/* General styles for the entire page */
 body {
-    font-family: 'Kanit', sans-serif;
-    background: #f0f2f5;
-    color: #34495e;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
     margin: 0;
-}
-
-.media-player-container {
-    background: #ffffff;
-    border-radius: 25px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 450px;
-    padding: 30px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 25px;
+    min-height: 100vh;
 }
 
-.media-player-header {
+.container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* --- Header Styles --- */
+.header {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.header-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        gap: 0;
+    }
+}
+
+.logo-and-title {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 1rem;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .header-title {
+        font-size: 1.875rem;
+    }
+}
+
+/* New styles for the navigation links and social icons container */
+.header-right-side {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Space between links and social icons */
+}
+
+.header-links {
+    display: flex;
+    gap: 1rem; /* Space between navigation links */
+}
+
+.header-link {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.header-link:hover {
+    color: #93c5fd;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    color: white;
+    transition: color 0.3s;
+}
+
+.facebook-link:hover {
+    color: #3b82f6;
+}
+
+.youtube-link:hover {
+    color: #ef4444;
+}
+
+/* --- Main Content Styles --- */
+.main-content {
+    flex-grow: 1;
+    padding: 0; /* Remove padding to allow content to span full width */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center; /* จัดให้อยู่ตรงกลางบนหน้าจอขนาดเล็ก */
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        flex-direction: row;
+        justify-content: space-between; /* จัดให้กล่องวิทยุอยู่ชิดซ้ายและกล่องวิดีโออยู่ชิดขวา */
+        align-items: flex-start;
+    }
+    .main-card {
+        flex: 1; /* ส่วนของวิทยุมีขนาดปกติ */
+        order: 1; /* กำหนดให้กล่องวิทยุอยู่ก่อน */
+    }
+    .video-and-info-container {
+        flex: 2; /* Container สำหรับ Video และ Date มีขนาดใหญ่ขึ้น */
+        order: 2;
+    }
+}
+
+/* Added container for date and video */
+.video-and-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .video-and-info-container {
+        width: auto;
+    }
+}
+
+.main-card {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 2rem;
+    margin-top: 2rem; /* Added margin to move the radio box down */
 }
 
 .media-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 100%;
-    object-fit: nonescale-down;
-    box-shadow: 0 4px 15px rgba(13, 6, 228, 0.507);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #3b82f6;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .media-info {
@@ -43,87 +169,158 @@ body {
 }
 
 .station-name {
-    margin: 0;
-    font-size: 1.6em;
-    font-weight: 600;
-    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
 }
 
-.track-info {
-    margin: 5px 0 0;
-    font-size: 0.9em;
-    color: #7f8c8d;
+@media (min-width: 768px) {
+    .station-name {
+        font-size: 1.875rem;
+    }
 }
 
-.media-controls {
-    display: grid;
-    grid-template-columns: 60px 1fr 120px;
-    align-items: center;
-    gap: 15px;
+.description {
+    color: #4b5563;
+    margin-top: 0.5rem;
+    font-style: italic;
 }
 
-.control-button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1.6em;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s, background-color 0.2s;
+.audio-player-wrapper {
+    margin-top: 1rem;
 }
 
-.control-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
-.progress-bar-wrapper {
-    height: 8px;
-    background-color: #e9ecef;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-#progress-bar {
-    width: 0%;
-    height: 100%;
-    background-color: #007bff;
-    transition: width 0.1s linear;
-}
-
-.volume-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.volume-controls input[type="range"] {
-    -webkit-appearance: none;
-    appearance: none;
+.audio-player-wrapper audio {
     width: 100%;
-    height: 8px;
-    background: #e9ecef;
-    border-radius: 4px;
-    outline: none;
 }
 
-.volume-controls input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background-color: #007bff;
-    border-radius: 50%;
-    cursor: pointer;
+/* New styles for the date display card */
+.date-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 2rem;
+    text-align: center;
 }
 
-.volume-controls #mute-btn {
-    background: none;
-    border: none;
-    color: #7f8c8d;
-    font-size: 1.2em;
-    cursor: pointer;
+.date-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+/* New styles for the video player card */
+.video-player-card {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem 2rem;
+}
+
+.video-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .video-title {
+        text-align: left;
+    }
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+}
+
+
+/* --- Footer Styles --- */
+.footer {
+    background-color: #1f2937;
+    color: white;
+    padding: 0; /* Remove padding to allow content to span full width */
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-container {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+    }
+}
+
+.footer-column p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.footer-logo {
+    width: 120px;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.footer-info-details p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.footer .social-icons {
+    justify-content: center;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .footer .social-icons {
+        justify-content: flex-start;
+    }
+}
+
+.footer-social-icons .social-link {
+    color: white;
+    transition: color 0.3s;
+}
+
+.footer-facebook-link:hover {
+    color: #3b82f6;
+}
+
+.footer-youtube-link:hover {
+    color: #ef4444;
+}
+
+.copyright {
+    text-align: center;
+    color: #9ca3af;
+    font-size: 0.875rem;
+    margin-top: 2rem;
 }
