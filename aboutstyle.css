@@ -1,0 +1,146 @@
+/* Container สำหรับจัดวางรูปภาพและเนื้อหาหลัก */
+body {
+    /* กำหนดฟอนต์สำหรับทั้งเว็บไซต์ */
+    font-family: 'Noto Serif Thai', serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+}
+.main-layout-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* ส่วนรูปภาพใหญ่ด้านซ้าย */
+.main-image-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.main-image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+/* ส่วนเนื้อหาด้านขวา */
+.content-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.about-card {
+    /* ใช้สไตล์เดิมที่คุณมีอยู่ */
+}
+
+/* ส่วนรูปภาพเล็กๆ ด้านล่าง */
+.thumbnail-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.thumbnail-image {
+    width: 23%; /* กำหนดขนาดให้มี 4 รูปต่อแถว */
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+/* สำหรับหน้าจอขนาดเล็ก ให้จัดเรียงในแนวตั้ง */
+@media (max-width: 768px) {
+    .main-layout-container {
+        flex-direction: column;
+    }
+    .thumbnail-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .thumbnail-image {
+        width: 48%; /* กำหนดให้มี 2 รูปต่อแถว */
+        margin-bottom: 1rem;
+    }
+}
+/* โค้ดสำหรับสร้าง Animation */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* นำ Animation ไปใช้กับรูปภาพหลัก */
+.main-image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    
+    /* เพิ่มโค้ด 3 บรรทัดนี้ */
+    animation-name: slideInLeft;
+    animation-duration: 1.5s; /* ระยะเวลา Animation */
+    animation-fill-mode: forwards; /* คงสถานะสุดท้ายของ Animation ไว้ */
+}
+/* นำ Animation ไปใช้กับรูปภาพเล็ก */
+.thumbnail-image {
+    width: 23%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+
+    /* เพิ่มโค้ด 3 บรรทัดนี้ */
+    animation-name: slideInLeft;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+.home-button {
+    background-color: white;
+    color: darkcyan;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 1rem; /* เพิ่มระยะห่างทางซ้ายเพื่อให้มีช่องว่าง */
+}
+
+.home-button:hover {
+    background-color: #f0f0f0;
+    color: darkcyan;
+}
+.header {
+
+   
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    /* เพิ่มโค้ด 3 บรรทัดนี้เพื่อจัดเรียงทุกอย่างใน Header ให้ชิดขวา */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Container ที่รวมลิงก์และปุ่มทั้งหมด */
+.header-right-side {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* เพิ่มช่องว่างระหว่างลิงก์และปุ่ม */
+    padding-right: 1rem; /* เพิ่ม padding ขวาเพื่อให้มีช่องว่าง */
+    margin-right: 1rem;
+}

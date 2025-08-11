@@ -1,0 +1,66 @@
+#splash-screen {
+  /* ทำให้คอนเทนเนอร์เป็น Flexbox เพื่อจัดเรียงองค์ประกอบ */
+  display: flex;
+  
+  /* จัดเรียงองค์ประกอบให้อยู่กึ่งกลางในแนวนอน (ซ้าย-ขวา) */
+  align-items: center;
+  
+  /* จัดเรียงองค์ประกอบให้อยู่กึ่งกลางในแนวตั้ง (บน-ล่าง) */
+  justify-content: center;
+  
+  /* เรียงองค์ประกอบจากบนลงล่าง (ภาพ, ปุ่ม) */
+  flex-direction: column;
+  
+  /* กำหนดขนาดเต็มหน้าจอ */
+  height: 100vh;
+  width: 100vw;
+  
+  /* โค้ดอื่นๆ เช่น background-color, background-image */
+}
+#splash-screen img {
+  max-width: 80%;
+  height: auto;
+  
+  margin-left: auto; /* จัดกึ่งกลางแนวนอน */
+  margin-right: auto;
+  display: flex;
+  /* หรือใช้ shorthand: margin: 0 auto; */
+}
+@media (max-width: 768px) {
+  #splash-screen img {
+    max-width: 90%; /* สามารถปรับขนาดให้ใหญ่ขึ้นเล็กน้อยบนหน้าจอมือถือ */
+  }
+}
+
+
+#enter-link, #enter-button {
+ margin-top: 20px; /* เว้นระยะห่างจากรูปภาพ */
+ padding: 10px 20px;
+ background-color: #007bff; /* สีพื้นหลังปุ่ม */
+ color: white; /* สีตัวอักษร */
+ text-decoration: none; /* ลบเส้นใต้สำหรับแท็ก <a> */
+ border: none;
+ border-radius: 5px;
+ font-size: 1em;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+}
+
+#enter-link:hover, #enter-button:hover {
+ background-color: #0056b3; /* สีพื้นหลังเมื่อวางเมาส์ */
+}
+/* เพิ่ม Keyframes สำหรับเอฟเฟกต์ Fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#splash-screen img {
+  
+  animation: fadeIn 1.5s ease-in-out forwards; 
+}
+/* สร้างคลาสสำหรับเอฟเฟกต์การหายไป */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-out; /* กำหนดระยะเวลาและชนิดของ Transition */
+}

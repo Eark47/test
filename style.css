@@ -1,29 +1,27 @@
-/* General styles for the entire page */
+/*
+ * style.css
+ * ไฟล์นี้ประกอบด้วยสไตล์ที่ปรับแต่งสำหรับเว็บไซต์สถานีวิทยุ
+*/
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f3f4f6;
+    background-color: #f3f4f6; /* Light gray background */
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    padding: 0;
 }
 
-.container {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-
-/* --- Header Styles --- */
+/* Styles for the main header element */
 .header {
-    background-color: #1e3a8a;
-    color: white;
+    /* เปลี่ยนเป็นสีไล่เฉด */
+    background-image: linear-gradient(to right, rgb(7, 195, 195), #098177);
+    color: rgb(242, 245, 248);
     padding: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
 }
-
 .header-container {
     max-width: 1280px;
     margin-left: auto;
@@ -52,42 +50,39 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .header-title {
-    font-size: 1.5rem;
+    font-size: 1.0rem;
     font-weight: 700;
 }
 
 @media (min-width: 768px) {
     .header-title {
-        font-size: 1.875rem;
+        font-size: 1.4rem;
     }
 }
 
-/* New styles for the navigation links and social icons container */
 .header-right-side {
     display: flex;
     align-items: center;
-    gap: 1.5rem; /* Space between links and social icons */
+    gap: 1rem;
 }
 
 .header-links {
     display: flex;
-    gap: 1rem; /* Space between navigation links */
+    gap: 1rem;
 }
 
 .header-link {
     color: white;
-    font-size: 1rem;
-    font-weight: 500;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .header-link:hover {
-    color: #93c5fd;
+    color: #0a60c2;
 }
 
 .social-icons {
@@ -108,82 +103,132 @@ body {
     color: #ef4444;
 }
 
-/* --- Main Content Styles --- */
+/* Styles for the Slideshow container */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    height: 600px; /* กำหนดความสูงของสไลด์โชว์ */
+    margin-top: 100px; /* เว้นระยะห่างจาก Header */
+}
+.mySlides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1.5s ease-in-out;
+    opacity: 0;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 5px solid #333; 
+    box-sizing: border-box; 
+}
+
+/* Styles for the navigation buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background with a little opacity */
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Styles for the dot indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Styles for the main content section */
 .main-content {
-    flex-grow: 1;
-    padding: 0; /* Remove padding to allow content to span full width */
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    align-items: center; /* จัดให้อยู่ตรงกลางบนหน้าจอขนาดเล็ก */
 }
 
 @media (min-width: 768px) {
     .main-content {
         flex-direction: row;
-        justify-content: space-between; /* จัดให้กล่องวิทยุอยู่ชิดซ้ายและกล่องวิดีโออยู่ชิดขวา */
+        justify-content: space-between;
         align-items: flex-start;
-    }
-    .main-card {
-        flex: 1; /* ส่วนของวิทยุมีขนาดปกติ */
-        order: 1; /* กำหนดให้กล่องวิทยุอยู่ก่อน */
-    }
-    .video-and-info-container {
-        flex: 2; /* Container สำหรับ Video และ Date มีขนาดใหญ่ขึ้น */
-        order: 2;
     }
 }
 
-/* Added container for date and video */
-.video-and-info-container {
+/* Styles for the main card (radio player and info) */
+.main-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    gap: 1rem;
     width: 100%;
 }
 
 @media (min-width: 768px) {
-    .video-and-info-container {
-        width: auto;
+    .main-card {
+        width: 40%;
     }
-}
-
-.main-card {
-    background-color: white;
-    border-radius: 1rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    padding: 1.5rem 2rem;
-    margin-top: 2rem; /* Added margin to move the radio box down */
 }
 
 .media-logo {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-    border: 4px solid #3b82f6;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 0.5rem;
 }
 
 .media-info {
-    text-align: left;
+    text-align: center;
 }
 
 .station-name {
     font-size: 1.5rem;
-    font-weight: 700;
-    color: #1f2937;
-}
-
-@media (min-width: 768px) {
-    .station-name {
-        font-size: 1.875rem;
-    }
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
 .description {
     color: #4b5563;
-    margin-top: 0.5rem;
-    font-style: italic;
+    font-size: 0.875rem;
 }
 
 .audio-player-wrapper {
@@ -194,48 +239,54 @@ body {
     width: 100%;
 }
 
-/* New styles for the date display card */
+/* Styles for the video and date container */
+.video-and-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .video-and-info-container {
+        width: 60%;
+    }
+}
+
+/* Styles for the date card */
 .date-card {
-    background-color: #ffffff;
-    border-radius: 1rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    padding: 1.5rem 2rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .date-card h3 {
     font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e3a8a;
-    margin: 0;
+    font-weight: bold;
+    color: #1f2937;
 }
 
-/* New styles for the video player card */
+/* Styles for the video player card */
 .video-player-card {
     background-color: white;
-    border-radius: 1rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    padding: 1.5rem 2rem;
-}
-
-.video-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-@media (min-width: 768px) {
-    .video-title {
-        text-align: left;
-    }
+.video-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .video-wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-top: 56.25%; /* 16:9 aspect ratio */
 }
 
 .video-wrapper video {
@@ -247,80 +298,84 @@ body {
     border-radius: 0.5rem;
 }
 
-
-/* --- Footer Styles --- */
+/* Styles for the footer */
 .footer {
     background-color: #1f2937;
     color: white;
-    padding: 0; /* Remove padding to allow content to span full width */
-    margin-top: auto;
+    padding: 2rem 1rem;
 }
 
 .footer-container {
     max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 2rem;
 }
 
 @media (min-width: 768px) {
     .footer-container {
-        grid-template-columns: repeat(3, 1fr);
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
         text-align: left;
     }
 }
 
-.footer-column p {
-    margin-bottom: 0.5rem;
-}
-
-.footer-title {
-    font-size: 1.125rem;
-    font-weight: 600;
+.footer-column {
+    flex: 1;
 }
 
 .footer-logo {
-    width: 120px;
+    max-width: 100px;
     height: auto;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.footer-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
 .footer-info-details p {
     font-size: 0.875rem;
-    line-height: 1.5;
+    margin-bottom: 0.25rem;
 }
 
-.footer .social-icons {
+.social-icons.footer-social-icons {
+    display: flex;
     justify-content: center;
     gap: 1rem;
+    margin-top: 0.5rem;
 }
 
 @media (min-width: 768px) {
-    .footer .social-icons {
+    .social-icons.footer-social-icons {
         justify-content: flex-start;
     }
 }
 
-.footer-social-icons .social-link {
-    color: white;
-    transition: color 0.3s;
-}
-
-.footer-facebook-link:hover {
-    color: #3b82f6;
-}
-
-.footer-youtube-link:hover {
-    color: #ef4444;
-}
-
 .copyright {
     text-align: center;
+    margin-top: 1rem;
+    font-size: 0.75rem;
     color: #9ca3af;
-    font-size: 0.875rem;
-    margin-top: 2rem;
+}
+.about-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 2rem auto;
+    line-height: 1.6;
+}
+
+.about-card h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: darkcyan;
+    margin-bottom: 1rem;
+    text-align: center;
 }

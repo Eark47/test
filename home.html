@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สถานีวิทยุ อ.ส. พระราชวังดุสิต</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-and-title">
+                <img src="Logo1.png" alt="Radio Logo" class="logo">
+                <h1 class="header-title">สถานีวิทยุ อ.ส. พระราชวังดุสิต</h1>
+            </div>
+            <div class="header-right-side">
+                <div class="header-links">
+                    <a href="about.html" class="header-link" target="_blank">ประวัติสถานี</a>
+                    <a href="#" class="header-link">ติดต่อ</a>
+                </div>
+                <div class="social-icons header-social-icons">
+                    <a href="https://www.facebook.com" target="_blank" aria-label="Facebook Page" class="social-link facebook-link">
+                        <i class="fa-brands fa-facebook fa-2x"></i>
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank" aria-label="YouTube Channel" class="social-link youtube-link">
+                        <i class="fa-brands fa-youtube fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img src="bg1.jpg" alt="รูปภาพสไลด์ที่ 1">
+            </div>
+            <div class="mySlides">
+                <img src="bg2.jpg" alt="รูปภาพสไลด์ที่ 2">
+            </div>
+            <div class="mySlides">
+                <img src="bg4.png" alt="รูปภาพสไลด์ที่ 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <div style="text-align:center" class="slideshow-dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <main class="main-content">
+            <div class="main-card">
+                <img src="1.jpg" alt="โลโก้วิทยุ" class="media-logo">
+                <div class="media-info">
+                    <h2 class="station-name">สถานีวิทยุ อ.ส. พระราชวังดุสิต</h2>
+                    <p class="description"><i>ออกอากาศในคลื่นความถี่ 104mhz Am 1332khz <br>ออกอากาศทุกวันตั้งแต่เวลา 9.00-18.00</i></p>
+                    <div class="audio-player-wrapper">
+                        <audio controls autoplay src="https://radio14.plathong.net/7028/;stream.mp3"></audio>
+                    </div>
+                </div>
+            </div>
+            <div class="video-and-info-container">
+                <div class="date-card">
+                    <h3 id="current-date"></h3>
+                </div>
+                <div class="video-player-card">
+                    <h3 class="video-title"></h3>
+                    <div class="video-wrapper">
+                        <video controls autoplay loop muted>
+                            <source src="video1.mp4" type="video/mp4">
+                            
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column logo-column">
+                    <img src="Logo1.png" alt="Footer Logo" class="footer-logo">
+                </div>
+                <div class="footer-column info-column">
+                    <p class="footer-title">สถานีวิทยุ อ.ส. พระราชวังดุสิต สวนจิตรลดา</p>
+                    <div class="footer-info-details">
+                        <p>ที่อยู่: สวนจิตรลดา แขวงดุสิต เขตดุสิต กรุงเทพมหานคร 10303</p>
+                        <p>โทรศัพท์: 02-999-9000</p>
+                        <p>เว็บไซต์: asradio104mhz.vercel.app</p>
+                        <p>อีเมล: asradio104mhz@gmail.com</p>
+                    </div>
+                </div>
+                <div class="footer-column contact-column">
+                    <p class="footer-title">ติดตาม สถานีวิทยุอ.ส. ได้ที่:</p>
+                    <div class="social-icons footer-social-icons">
+                        <a href="https://www.facebook.com" target="_blank" class="social-link footer-facebook-link">
+                            <i class="fa-brands fa-facebook fa-xl"></i>
+                        </a>
+                        <a href="https://www.youtube.com" target="_blank" class="social-link footer-youtube-link">
+                            <i class="fa-brands fa-youtube fa-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                สถานีวิทยุ อ.ส. พระราชวังดุสิต
+            </div>
+        </footer>
+   
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,23 +1,77 @@
-// Function to update the current date in Thai format
-function updateThaiDate() {
-    // Find the element with the ID 'current-date'
-    const dateElement = document.getElementById('current-date');
-    if (dateElement) {
-        // Get the current date
-        const now = new Date();
-        // Define options for formatting the date
-        const options = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        };
-        // Format the date using Thai locale
-        const thaiDate = now.toLocaleDateString('th-TH', options);
-        // Update the content of the element
-        dateElement.textContent = thaiDate;
+let slideIndex = 1;
+let autoSlideInterval;
+
+// ฟังก์ชันนี้จะทำงานเมื่อหน้าเว็บโหลดเสร็จสมบูรณ์
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // 2. จัดการ Slideshow
+    showSlides(slideIndex);
+    startAutoSlideshow();
+
+    // 3. จัดการวันที่และเวลา
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+});
+
+// Function to change slides by a given number (n)
+function plusSlides(n) {
+    if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
     }
+    showSlides(slideIndex += n);
+    startAutoSlideshow();
 }
 
-// Run the function when the page loads
-document.addEventListener('DOMContentLoaded', updateThaiDate);
+// Function to go directly to a specific slide (n)
+function currentSlide(n) {
+    if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+    }
+    showSlides(slideIndex = n);
+    startAutoSlideshow();
+}
+
+// Main function to display the correct slide
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = "0";
+    }
+    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    
+    slides[slideIndex - 1].style.opacity = "1";
+    dots[slideIndex - 1].className += " active";
+}
+
+// Function to start the automatic slideshow
+function startAutoSlideshow() {
+    autoSlideInterval = setInterval(function() {
+        plusSlides(1); // Advance to the next slide every 10 seconds
+    }, 10000);
+}
+
+// Function to update the current date and time
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    const formattedDate = now.toLocaleDateString('th-TH', options);
+    const dateElement = document.getElementById('current-date');
+    
+    if (dateElement) {
+        dateElement.textContent = formattedDate;
+    }
+}
