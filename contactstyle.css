@@ -1,0 +1,115 @@
+/* --- โค้ดสำหรับหน้า Contact แบบมีแกลเลอรี่รูปภาพ --- */
+
+.contact-page-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.contact-page-container .contact-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.contact-info-block {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 1.1em;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.contact-info-item i {
+    color: #2c3e50;
+    font-size: 1.5em;
+    min-width: 25px;
+}
+
+.image-gallery-block h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #34495e;
+    text-align: left;
+}
+
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.image-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.05);
+}
+
+.social-media-icons-block {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.social-media-icons-block a {
+    color: #7f8c8d; /* สีเริ่มต้นของไอคอน */
+    font-size: 2em;
+    transition: color 0.3s ease;
+}
+
+.social-media-icons-block .facebook-icon:hover {
+    color: #3b5998; /* สีของ Facebook */
+}
+
+.social-media-icons-block .twitter-icon:hover {
+    color: #1da1f2; /* สีของ Twitter */
+}
+
+.social-media-icons-block .youtube-icon:hover {
+    color: #ff0000; /* สีของ YouTube */
+}
+
+/* --- โค้ดสำหรับปุ่มกลับหน้าหลัก --- */
+
+.back-to-home-button {
+    display: block;
+    width: 200px;
+    margin: 40px auto;
+    padding: 15px 30px;
+    background-color: #34495e;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-to-home-button:hover {
+    background-color: #231e84;
+    transform: translateY(-2px);
+}

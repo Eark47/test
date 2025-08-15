@@ -1,0 +1,133 @@
+/* schedule_style.css */
+
+.schedule-container {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 960px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.schedule-title {
+    font-size: 2.2em;
+    font-weight: 600;
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.schedule-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+}
+
+.tab-button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #7f8c8d;
+}
+
+.tab-button:hover {
+    background-color: #e9ecef;
+}
+
+.tab-button.active {
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #dee2e6;
+}
+.home-button {
+    background-color: white;
+    color: darkcyan;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 1rem; /* เพิ่มระยะห่างทางซ้ายเพื่อให้มีช่องว่าง */
+}
+
+.home-button:hover {
+    background-color: #f0f0f0;
+    color: darkcyan;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    /* เพิ่มโค้ด 3 บรรทัดนี้เพื่อจัดเรียงทุกอย่างใน Header ให้ชิดขวา */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Container ที่รวมลิงก์และปุ่มทั้งหมด */
+.header-right-side {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: row-reverse;
+    padding-right: 15px; /* เพิ่ม padding เพื่อขยับปุ่มเข้ามาจากขอบขวา */
+}
+
+
+/* เพิ่มสีหัวข้อตารางสำหรับแต่ละวัน */
+.schedule-table.day-mon thead th {
+    background-color: #fff700; /* สีน้ำเงินสำหรับวันจันทร์ */
+    color: black;
+}
+.schedule-table.day-tue thead th {
+    background-color: #e83e8c; /* สีชมพูสำหรับวันอังคาร */
+    color: black;
+}
+.schedule-table.day-wed thead th {
+    background-color: #1baf3e; /* สีเขียวสำหรับวันพุธ */
+    color: black;
+}
+.schedule-table.day-thu thead th {
+    background-color: #fd8300; /* สีเหลืองสำหรับวันพฤหัสบดี */
+    color: black(241, 240, 240);
+}
+.schedule-table.day-fri thead th {
+    background-color: #58c0f5; /* สีม่วงสำหรับวันศุกร์ */
+    color: black;
+}
+.schedule-table.day-sat thead th {
+    background-color: #b100f7; /* สีส้มสำหรับวันเสาร์ */
+    color: black;
+}
+.schedule-table.day-sun thead th {
+    background-color: red; /* สีแดงสำหรับวันอาทิตย์ */
+    color: black;
+}

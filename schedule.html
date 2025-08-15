@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตารางออกอากาศ - สถานีวิทยุ อ.ส. พระราชวังดุสิต</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <link rel="stylesheet" href="schedulestyle.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+            <div class="header-right-side">
+                <a href="home.html" class="header-link home-button">หน้าแรก</a>
+                
+            </div>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <div class="schedule-container">
+            <h2 class="schedule-title">ผังรายการ</h2>
+            <div class="schedule-tabs">
+                <button class="tab-button active" onclick="openDay(event, 'mon')">จันทร์</button>
+                <button class="tab-button" onclick="openDay(event, 'tue')">อังคาร</button>
+                <button class="tab-button" onclick="openDay(event, 'wed')">พุธ</button>
+                <button class="tab-button" onclick="openDay(event, 'thu')">พฤหัสบดี</button>
+                <button class="tab-button" onclick="openDay(event, 'fri')">ศุกร์</button>
+                <button class="tab-button" onclick="openDay(event, 'sat')">เสาร์</button>
+                <button class="tab-button" onclick="openDay(event, 'sun')">อาทิตย์</button>
+            </div>
+
+            <div id="mon" class="tab-content">
+                <table class="schedule-table">
+                    <thead><tr><th>เวลา</th><th>รายการ</th></tr></thead>
+                    <tbody>
+                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td></tr>
+                        <tr><td>11:00 - 11:30 น.</td><td>รายการโภชนาการน่ารู้</td></tr>
+                        <tr><td>11:30 - 12:00 น.</td><td>ดนตรีสากล</td></tr>
+                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td></tr>
+                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:15 - 16.45 น.</td><td>เพลงสำหรับเด็ก</td></tr>
+                        <tr><td>16:45 - 17.15 น.</td><td>รายการศาสนา</td></tr>
+                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td></tr>
+                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td></tr>
+                        </tbody>
+                </table>
+            </div>
+            
+            <div id="tue" class="tab-content">
+            <table class="schedule-table">
+                    <thead><tr><th>เวลา</th><th>รายการ</th></tr></thead>
+                    <tbody>
+                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td></tr>
+                        <tr><td>11:00 - 11:30 น.</td><td>ตอบปัญหาทางธรรมมะ</td></tr>
+                        <tr><td>11:30 - 12:00 น.</td><td>ดนตรีไทย</td></tr>
+                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td></tr>
+                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:15 - 16.45 น.</td><td>เพลงสำหรับเด็ก</td></tr>
+                        <tr><td>16:45 - 17.15 น.</td><td>รายการยุวพทธิกฯ</td></tr>
+                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td></tr>
+                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td></tr>
+                        </tbody>
+                </table>
+            </div>
+            
+            <div id="wed" class="tab-content">
+                <table class="schedule-table">
+                    <thead><tr><th>เวลา</th><th>รายการ</th></tr></thead>
+                    <tbody>
+                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td></tr>
+                        <tr><td>11:00 - 11:30 น.</td><td>รายการพบหมอศิริราช</td></tr>
+                        <tr><td>11:30 - 12:00 น.</td><td>รายการบริหารทางจิต</td></tr>
+                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td></tr>
+                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:15 - 16.30 น.</td><td>รายการคลื่นเกษตรกร</td></tr>
+                        <tr><td>16:30 - 17.15 น.</td><td>รายการ TO BE NUMBERONE Variety</td></tr>
+                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td></tr>
+                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td></tr>
+                        </tbody>
+                </table>
+            </div>
+            <div id="thu" class="tab-content">
+                <table class="schedule-table">
+                    <thead><tr><th>เวลา</th><th>รายการ</th></tr></thead>
+                    <tbody>
+                        <tr><td>09:00 - 12:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td></tr>
+                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td></tr>
+                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:15 - 16.30 น.</td><td>เพลงสำหรับเด็ก</td></tr>
+                        <tr><td>16:30 - 16.45 น.</td><td>รายการสภาสตรีฯ</td></tr>
+                        <tr><td>16.45 - 17.15 น.</td><td>รายการธรรมปฏิบัติ</td></tr>
+                        <tr><td>17.15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา</td></tr>
+                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td></tr>
+                        </tbody>
+                </table>
+            </div>
+            <div id="fri" class="tab-content" >
+               <table class="schedule-table">
+                    <thead><tr><th>เวลา</th><th>รายการ</th></tr></thead>
+                    <tbody>
+                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td></tr>
+                        <tr><td>11:00 - 11:30 น.</td><td>รานการทหาร</td></tr>
+                        <tr><td>11:30 - 12:00 น.</td><td>ดนตรีไทย</td></tr>
+                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td></tr>
+                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:15 - 17.15 น.</td><td>รายการดนตรีนักเรียน</td></tr>
+                        <tr><td>17.15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา</td></tr>
+                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td></tr>
+                        </tbody>
+                </table>
+            </div>
+            <div id="sat" class="tab-content" >
+                <table class="schedule-table">
+                    <thead><tr><th>เวลา</th><th>รายการ</th></tr></thead>
+                    <tbody>
+                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td></tr>
+                        <tr><td>11:00 - 12.00 น.</td><td>ดนตรีสากล</td></tr>
+                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td></tr>
+                        <tr><td>13.00 - 13.10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>13:10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:15 - 17.15 น.</td><td>บทเพลงพระราชนิพนธ์</td></tr>
+                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td></tr>
+                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td></tr>
+                        </tbody>
+                </table>
+             </div>
+            <div id="sun" class="tab-content">
+                <table class="schedule-table">
+                    <thead><tr><th>เวลา</th><th>รายการ</th></tr></thead>
+                    <tbody>
+                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td></tr>
+                        <tr><td>11:00 - 12.00 น.</td><td>ดนตรีสากล</td></tr>
+                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td></tr>
+                        <tr><td>13.00 - 13.10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>13:10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td></tr>
+                        <tr><td>16:15 - 17.15 น.</td><td>บทเพลงพระราชนิพนธ์</td></tr>
+                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td></tr>
+                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td></tr>
+                        </tbody>
+                </table>
+             </div>
+        </div>
+    </main>
+
+ 
+  <script>
+        function openDay(evt, dayName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            document.getElementById(dayName).style.display = "block";
+            evt.currentTarget.className += " active";
+    
+            // โค้ดใหม่: เพื่อเปลี่ยนสีหัวข้อตารางตามวัน
+            // เลือกตารางที่อยู่ใน div ของวันนั้นๆ โดยตรง
+            var scheduleTable = document.querySelector("#" + dayName + " .schedule-table");
+            
+            // ลบคลาสวันเก่าออก
+            scheduleTable.className = "schedule-table";
+            
+            // เพิ่มคลาสวันใหม่
+            scheduleTable.classList.add("day-" + dayName);
+        }
+    
+        // กำหนดสีเริ่มต้นเมื่อโหลดหน้า
+        window.onload = function() {
+            openDay({currentTarget: document.querySelector('.tab-button.active')}, 'mon');
+        };
+    </script>
+</body>
+</html>
