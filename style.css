@@ -12,7 +12,7 @@ body {
 /* Styles for the main header element */
 .header {
     /* เปลี่ยนเป็นสีไล่เฉด */
-    background-image: linear-gradient(to right, rgb(7, 195, 195), #098177);
+    background-image: linear-gradient(to right, #486288, #2a466d);
     color: rgb(242, 245, 248);
     padding: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -193,7 +193,7 @@ body {
 
 /* Styles for the main card (radio player and info) */
 .main-card {
-    background-color: white;
+    background-color: #f9f8f7;
     padding: 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -272,7 +272,7 @@ body {
 
 /* Styles for the video player card */
 .video-player-card {
-    background-color: white;
+    background-color: rgb(248, 244, 244);
     padding: 1.5rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
