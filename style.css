@@ -53,8 +53,10 @@ body {
 
 .header-title {
     font-family: 'Athiti', serif;
-    font-size: 1.0rem;
+    font-size: 1.5rem;
     font-weight: 700;
+    text-decoration: none;
+    color: rgb(242, 245, 248);
 }
 
 @media (min-width: 768px) {

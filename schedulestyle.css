@@ -1,4 +1,14 @@
 /* schedule_style.css */
+body {
+    background-image: url('pic/pic\ bg\ 3.png'); /* เปลี่ยน 'URL_ของ_รูปภาพ_เมฆ_การ์ตูน.png' เป็นลิงก์ของรูปภาพที่คุณต้องการใช้ */
+    background-size: cover; /* ทำให้รูปภาพครอบคลุมพื้นที่ทั้งหมด */
+    background-repeat: no-repeat; /* ไม่ให้รูปภาพซ้ำ */
+    background-attachment: fixed; /* ทำให้รูปภาพพื้นหลังอยู่กับที่เมื่อเลื่อนหน้าจอ */
+    background-position: center center; /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
+    margin: 0; /* ลบระยะขอบเริ่มต้นของ body */
+    padding: 0; /* ลบระยะห่างภายในเริ่มต้นของ body */
+}
+
 
 .schedule-container {
     background-color: #ffffff;
@@ -73,7 +83,7 @@
 /* Column width adjustments */
 .schedule-table th:nth-child(1),
 .schedule-table td:nth-child(1) {
-    width: 15%; /* คอลัมน์ "เวลา" */
+    width: 17%; /* คอลัมน์ "เวลา" */
 }
 
 .schedule-table th:nth-child(2),
@@ -81,12 +91,14 @@
     width: 45%; /* คอลัมน์ "รายการ" */
 }
 
-.schedule-table th:nth-child(3),
-.schedule-table td:nth-child(3) {
-    width: 10%; /* คอลัมน์ "โลโก้" */
-    text-align: center; /* จัดโลโก้ให้อยู่กึ่งกลาง */
+.schedule-table td:nth-child(3) img {
+    width: 150px; /* กำหนดความกว้างของรูปภาพให้เท่ากัน */
+    height: 150px; /* กำหนดความสูงของรูปภาพให้เท่ากัน */
+    display: block; /* ทำให้รูปภาพเป็นบล็อก */
+    margin: 0 auto; /* จัดรูปภาพให้อยู่กึ่งกลางในเซลล์ */
+    object-fit: cover; /* ปรับขนาดรูปภาพให้เต็มกรอบโดยไม่ผิดสัดส่วน */
+    border-radius: 10px; /* เพิ่มขอบมนเล็กน้อยเพื่อความสวยงาม */
 }
-
 .schedule-table th:nth-child(4),
 .schedule-table td:nth-child(4) {
     width: 30%; /* คอลัมน์ "ผู้ดำเนินรายการ" */
@@ -131,30 +143,30 @@
 
 /* เพิ่มสีหัวข้อตารางสำหรับแต่ละวัน */
 .schedule-table.day-mon thead th {
-    background-color: #fff700; /* สีน้ำเงินสำหรับวันจันทร์ */
+    background-color: #F5E1A4; /* สีน้ำเงินสำหรับวันจันทร์ */
     color: black;
 }
 .schedule-table.day-tue thead th {
-    background-color: #e83e8c; /* สีชมพูสำหรับวันอังคาร */
+    background-color: #ffd1ff; /* สีชมพูสำหรับวันอังคาร */
     color: black;
 }
 .schedule-table.day-wed thead th {
-    background-color: #1baf3e; /* สีเขียวสำหรับวันพุธ */
+    background-color: #06cd6a; /* สีเขียวสำหรับวันพุธ */
     color: black;
 }
 .schedule-table.day-thu thead th {
-    background-color: #fd8300; /* สีเหลืองสำหรับวันพฤหัสบดี */
+    background-color: #f59a38ea; /* สีเหลืองสำหรับวันพฤหัสบดี */
     color: black(241, 240, 240);
 }
 .schedule-table.day-fri thead th {
-    background-color: #58c0f5; /* สีม่วงสำหรับวันศุกร์ */
+    background-color: #91d4f6; /* สีม่วงสำหรับวันศุกร์ */
     color: black;
 }
 .schedule-table.day-sat thead th {
-    background-color: #b100f7; /* สีส้มสำหรับวันเสาร์ */
+    background-color: #cf77f2; /* สีส้มสำหรับวันเสาร์ */
     color: black;
 }
 .schedule-table.day-sun thead th {
-    background-color: red; /* สีแดงสำหรับวันอาทิตย์ */
+    background-color: #b51232; /* สีแดงสำหรับวันอาทิตย์ */
     color: black;
 }
