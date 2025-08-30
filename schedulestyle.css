@@ -56,15 +56,42 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    font-size: 1.1em;
+    font-size: 16px; /* ปรับขนาดตัวอักษรให้ดูสบายตาขึ้น */
 }
 
 .schedule-table th,
 .schedule-table td {
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #dee2e6;
+    padding: 15px; /* เพิ่มระยะห่างภายในเซลล์ให้กว้างขึ้น */
+    border: 1px solid #ddd; /* เพิ่มเส้นขอบเซลล์ */
+    text-align: left; /* จัดข้อความให้อยู่ทางซ้าย */
 }
+.schedule-table th {
+    background-color: #f2f2f2; /* สีพื้นหลังส่วนหัว */
+    font-weight: bold; /* ทำตัวหนาในส่วนหัว */
+    white-space: nowrap; /* ไม่ให้ข้อความในส่วนหัวขึ้นบรรทัดใหม่ */
+}
+/* Column width adjustments */
+.schedule-table th:nth-child(1),
+.schedule-table td:nth-child(1) {
+    width: 15%; /* คอลัมน์ "เวลา" */
+}
+
+.schedule-table th:nth-child(2),
+.schedule-table td:nth-child(2) {
+    width: 45%; /* คอลัมน์ "รายการ" */
+}
+
+.schedule-table th:nth-child(3),
+.schedule-table td:nth-child(3) {
+    width: 10%; /* คอลัมน์ "โลโก้" */
+    text-align: center; /* จัดโลโก้ให้อยู่กึ่งกลาง */
+}
+
+.schedule-table th:nth-child(4),
+.schedule-table td:nth-child(4) {
+    width: 30%; /* คอลัมน์ "ผู้ดำเนินรายการ" */
+}
+
 .home-button {
     background-color: white;
     color: darkcyan;

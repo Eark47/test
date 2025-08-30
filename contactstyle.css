@@ -93,23 +93,29 @@
 
 /* --- โค้ดสำหรับปุ่มกลับหน้าหลัก --- */
 
+/* --- โค้ดสำหรับปุ่มกลับหน้าหลัก --- */
+
 .back-to-home-button {
-    display: block;
-    width: 200px;
-    margin: 40px auto;
+    /* เปลี่ยนจาก display: block; และ margin: 40px auto; */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    /* สไตล์เดิม */
     padding: 15px 30px;
     background-color: #34495e;
     color: #ffffff;
     text-align: center;
     text-decoration: none;
     border-radius: 10px;
-    font-size: 1.1em;
+    font-size: 0.8em;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .back-to-home-button:hover {
-    background-color: #231e84;
-    transform: translateY(-2px);
+    background-color: #2c3e50; /* เพิ่มสี hover เพื่อให้ดูดีขึ้น */
+    transform: translateY(-2px); /* เพิ่มเอฟเฟกต์ยกตัวขึ้นเล็กน้อย */
 }
