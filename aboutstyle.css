@@ -1,6 +1,7 @@
 /* General & Body */
 body {
     font-family: 'Kanit', sans-serif;
+     background-image: url('pic/BG\ about.png'); /* เปลี่ยน 'URL_ของ_รูปภาพ_เมฆ_การ์ตูน.png' เป็นลิงก์ของรูปภาพที่คุณต้องการใช้ */
     background-color: #f0f2f5;
     color: #343a40;
     line-height: 1.7;
@@ -28,7 +29,7 @@ body {
 
 /* Hero Section */
 .about-hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pic/aboutpicbg2.webp') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pic/aboutpic13.png') no-repeat center center/cover;
     color: #fff;
     height: 60vh;
     display: flex;
@@ -155,7 +156,7 @@ body {
     text-align: center;
     padding: 2rem 1rem;
     margin-top: 3rem;
-    background-color: #e9ecef;
+    
 }
 
 .footer-button {

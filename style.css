@@ -4,7 +4,11 @@
 */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #FFEB99;
+    background-image: url('pic/BGHometest.png'); 
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-position: center center; /* <-- จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
+   
     margin: 0;
     padding: 0;
 }
@@ -176,7 +180,7 @@ body {
 
 /* Styles for the main content section */
 .main-content {
-    background-color: #FFEB99;
+    
     max-width: 1280px;
     margin: 2rem auto;
     padding: 1rem;
