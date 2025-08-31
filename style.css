@@ -12,6 +12,12 @@ body {
     margin: 0;
     padding: 0;
 }
+@media (max-width: 768px) {
+    body {
+        background-size: auto 100%; /* <-- ทำให้สูงเต็มจอ แต่กว้างอัตโนมัติ */
+        background-position: top center; /* <-- จัดตำแหน่งรูปภาพให้ชิดขอบบน */
+    }
+}
 
 /* Styles for the main header element */
 .header {
