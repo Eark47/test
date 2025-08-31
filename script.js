@@ -61,7 +61,7 @@ function showSlides(n) {
 function startAutoSlideshow() {
     autoSlideInterval = setInterval(function() {
         plusSlides(1); // Advance to the next slide every 10 seconds
-    }, 3000);
+    }, 5000);
 }
 
 // Function to update the current date and time
