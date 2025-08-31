@@ -1,146 +1,207 @@
-/* Container สำหรับจัดวางรูปภาพและเนื้อหาหลัก */
+/* General & Body */
 body {
-    /* กำหนดฟอนต์สำหรับทั้งเว็บไซต์ */
-    font-family: 'Noto Serif Thai', serif;
-    background-color: #f3f4f6;
+    font-family: 'Kanit', sans-serif;
+    background-color: #f0f2f5;
+    color: #343a40;
+    line-height: 1.7;
     margin: 0;
-    padding: 0;
-}
-.main-layout-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    max-width: 1280px;
-    margin: 2rem auto;
-    padding: 1rem;
 }
 
-/* ส่วนรูปภาพใหญ่ด้านซ้าย */
-.main-image-section {
-    flex: 1;
-    min-width: 300px;
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
-.main-image-section img {
-    width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-}
-
-/* ส่วนเนื้อหาด้านขวา */
-.content-section {
-    flex: 1;
-    min-width: 300px;
-    padding: 1.5rem;
-    background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-.about-card {
-    /* ใช้สไตล์เดิมที่คุณมีอยู่ */
-}
-
-/* ส่วนรูปภาพเล็กๆ ด้านล่าง */
-.thumbnail-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    max-width: 1280px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-.thumbnail-image {
-    width: 23%; /* กำหนดขนาดให้มี 4 รูปต่อแถว */
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.5rem;
-}
-
-/* สำหรับหน้าจอขนาดเล็ก ให้จัดเรียงในแนวตั้ง */
-@media (max-width: 768px) {
-    .main-layout-container {
-        flex-direction: column;
-    }
-    .thumbnail-container {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .thumbnail-image {
-        width: 48%; /* กำหนดให้มี 2 รูปต่อแถว */
-        margin-bottom: 1rem;
-    }
-}
-/* โค้ดสำหรับสร้าง Animation */
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* นำ Animation ไปใช้กับรูปภาพหลัก */
-.main-image-section img {
-    width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-    
-    /* เพิ่มโค้ด 3 บรรทัดนี้ */
-    animation-name: slideInLeft;
-    animation-duration: 1.5s; /* ระยะเวลา Animation */
-    animation-fill-mode: forwards; /* คงสถานะสุดท้ายของ Animation ไว้ */
-}
-/* นำ Animation ไปใช้กับรูปภาพเล็ก */
-.thumbnail-image {
-    width: 23%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.5rem;
-
-    /* เพิ่มโค้ด 3 บรรทัดนี้ */
-    animation-name: slideInLeft;
-    animation-duration: 1.5s;
-    animation-fill-mode: forwards;
-}
-.home-button {
-    background-color: white;
-    color: darkcyan;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s, color 0.3s;
-    margin-left: 1rem; /* เพิ่มระยะห่างทางซ้ายเพื่อให้มีช่องว่าง */
-}
-
-.home-button:hover {
-    background-color: #f0f0f0;
-    color: darkcyan;
-}
-.header {
-
-   
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    /* เพิ่มโค้ด 3 บรรทัดนี้เพื่อจัดเรียงทุกอย่างใน Header ให้ชิดขวา */
+/* Minimal Header */
+.header-minimal {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 4rem);
+    z-index: 10;
 }
 
-/* Container ที่รวมลิงก์และปุ่มทั้งหมด */
-.header-right-side {
+/* Hero Section */
+.about-hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('pic/aboutpicbg2.webp') no-repeat center center/cover;
+    color: #fff;
+    height: 60vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 1rem; /* เพิ่มช่องว่างระหว่างลิงก์และปุ่ม */
-    padding-right: 1rem; /* เพิ่ม padding ขวาเพื่อให้มีช่องว่าง */
-    margin-right: 1rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Content Section (Text & Image) */
+.content-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.content-section.reverse-layout {
+    direction: rtl;
+}
+
+.content-section.reverse-layout > .content-text-block {
+    direction: ltr;
+}
+
+.content-text-block h2 {
+    color: #0d47a1;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.content-text-block p {
+    font-size: 1.1rem;
+    text-indent: 2rem;
+}
+
+.content-image-block img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Gallery Section */
+.gallery-section h2 {
+    text-align: center;
+    color: #0d47a1;
+    margin-bottom: 2rem;
+}
+
+.flex-gallery {
+    display: flex;
+    flex-wrap: wrap; /* ทำให้รูปภาพขึ้นบรรทัดใหม่เมื่อไม่มีพื้นที่พอ */
+    gap: 15px; /* ระยะห่างระหว่างรูปภาพ */
+    justify-content: center; /* จัดรูปภาพให้อยู่ตรงกลางแนวนอน */
+    margin-bottom: 3rem;
+}
+
+.gallery-item {
+    flex: 1 1 250px; /* ยืดหยุ่นได้และมีขนาดพื้นฐาน 250px */
+    height: 200px; /* กำหนดความสูงที่แน่นอนของแต่ละรูปภาพ */
+    overflow: hidden; /* ซ่อนส่วนเกินของรูปภาพ */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ทำให้รูปภาพเต็มพื้นที่โดยไม่เสียสัดส่วน */
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05); /* ขยายรูปภาพเล็กน้อยเมื่อวางเมาส์ */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .flex-gallery {
+        justify-content: space-around;
+    }
+    .gallery-item {
+        flex: 1 1 150px; /* ปรับขนาดบนมือถือ */
+    }
+}
+
+/* คลาสสำหรับกำหนดขนาด */
+.grid-span-2x2 {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.grid-span-1x2 {
+    grid-row: span 2;
+}
+
+
+/* Footer Section */
+.footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    background-color: #e9ecef;
+}
+
+.footer-button {
+    color: #fff;
+    background-color: #0d47a1;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+.footer-button:hover {
+    background-color: #002d73;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-section,
+    .content-section.reverse-layout {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+
+    .modern-grid-gallery {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+    
+    .grid-span-2x2, .grid-span-1x2 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .about-hero {
+        height: 40vh;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
 }
