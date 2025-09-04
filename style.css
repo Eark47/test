@@ -1,7 +1,9 @@
-/*
- * style.css
- * ไฟล์นี้ประกอบด้วยสไตล์ที่ปรับแต่งสำหรับเว็บไซต์สถานีวิทยุ
-*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
     font-family: 'Inter', sans-serif;
     background-image: url('pic/BGHometest.png'); 
@@ -33,7 +35,7 @@ body {
     z-index: 10;
 }
 .header-container {
-    max-width: 1280px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -41,6 +43,7 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    padding: 0 20px;
 }
 
 @media (min-width: 768px) {
