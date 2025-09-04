@@ -4,6 +4,17 @@ let autoSlideInterval;
 // ฟังก์ชันนี้จะทำงานเมื่อหน้าเว็บโหลดเสร็จสมบูรณ์
 document.addEventListener('DOMContentLoaded', function() {
     
+    // 1. โค้ดสำหรับ Hamburger Menu (ย้ายมาไว้ข้างใน)
+    const hamburgerBtn = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.header-right-side');
+
+    if (hamburgerBtn && navMenu) { // ตรวจสอบว่า element มีอยู่จริง
+        hamburgerBtn.addEventListener('click', function() {
+            hamburgerBtn.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    }
+
     // 2. จัดการ Slideshow
     showSlides(slideIndex);
     startAutoSlideshow();
@@ -50,6 +61,7 @@ function showSlides(n) {
     slides[slideIndex - 1].style.opacity = "1";
     dots[slideIndex - 1].className += " active";
 }
+
 
 
 // Function to start the automatic slideshow

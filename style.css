@@ -304,20 +304,24 @@ body {
     margin-bottom: 1rem;
     text-align: center;
 }
+
 /* สำหรับหน้าจอคอมพิวเตอร์ (768px ขึ้นไป) */
 @media (min-width: 768px) {
+    .header {
+        height: 100px; /* เพิ่มความสูงที่แน่นอน */
+        padding: 0; /* ลบ padding ที่อาจทำให้ความสูงไม่แน่นอน */
+    }
     .header-container {
         flex-direction: row;
-        gap: 0;
-    }
-    .header-title {
-        font-size: 1.4rem;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%; /* ทำให้ container สูงเท่า header */
     }
     .main-content {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
-        padding-top: 60px;
+        padding-top: 100px; /* แก้ไขให้เท่ากับความสูงของ header */
     }
     .main-card {
         width: 40%;
@@ -331,54 +335,105 @@ body {
         align-items: flex-start;
         text-align: left;
     }
-    .social-icons.footer-social-icons {
-        justify-content: flex-start;
+}
+/* Styles for the hamburger menu */
+.hamburger-menu {
+    display: none; /* ซ่อนปุ่มบนหน้าจอคอมพิวเตอร์ */
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001; /* ให้อยู่บนสุดเสมอ */
+    flex-direction: column;
+    justify-content: space-around;
+}
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Styles for the navigation menu on mobile */
+.header-right-side {
+    display: flex; /* แสดงผลบนหน้าจอปกติ */
+    transition: all 0.3s ease-in-out;
+}
+
+/* For mobile devices, hide the desktop menu and show the hamburger button */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex; /* แสดงปุ่มบนมือถือ */
+    }
+    .header-right-side {
+        position: fixed;
+        top: 60px; /* ปรับให้เท่ากับความสูงของ header */
+        right: 0;
+        width: 100%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: #2a466d;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(100%); /* ซ่อนเมนูไว้ทางขวา */
+        padding-top: 2rem;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    }
+    .header-right-side.active {
+        transform: translateX(0); /* เมื่อ active ให้แสดงเมนู */
+    }
+    /* Styles for the hamburger icon when active */
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .hamburger-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
     }
 }
 
-/* สำหรับหน้าจอมือถือ (ไม่เกิน 768px) */
+
 @media (max-width: 768px) {
-    /* พื้นหลัง */
-    body {
-        background-size: cover;
-        background-position: top center;
-    }
-    /* Header */
+    /* Styles for the header on mobile */
     .header {
-        height: 60px; /* กำหนดความสูงของ Header บนมือถือ */
+        height: 60px; /* กำหนดความสูงที่แน่นอนสำหรับมือถือ */
+        padding: 0; /* ลบ padding เพื่อให้ความสูงคงที่ */
     }
+
     .header-container {
-        flex-direction: column;
-        gap: 1rem;
+        flex-direction: row; /* *** แก้ไข: ปรับเป็น row เพื่อจัดเรียงองค์ประกอบในแนวนอน *** */
+        justify-content: space-between;
+        align-items: center;
+        height: 100%; /* ทำให้ container สูงเท่า header */
     }
     .header-title {
-        font-size: 1.4rem;
+        font-size: 1rem; /* *** แก้ไข: ปรับขนาดตัวอักษรให้เล็กลง *** */
     }
-    /* Main Content */
+    .header-link {
+        font-size: 0.9rem; /* *** แก้ไข: ปรับขนาดตัวอักษรของลิงก์ให้เล็กลง *** */
+    }
+
+    .logo-and-title {
+        flex: 1;
+        justify-content: flex-start; /* จัดโลโก้ไปทางซ้าย */
+    }
+
+    /* Styles for the main content on mobile */
     .main-content {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 60px; /* ปรับค่านี้ให้เท่ากับความสูงของ Header บนมือถือ */
+        padding-top: 0;
+        
     }
-    .main-card {
-        width: 100%;
-    }
-    .video-and-info-container {
-        width: 100%;
-    }
-    /* Slideshow */
+
+    /* Styles for the slideshow on mobile */
     .slideshow-container {
-        padding-top: 75%; /* ปรับสัดส่วนเป็น 4:3 สำหรับมือถือ */
+        padding-top: 75%; /* ปรับสัดส่วนให้เหมาะสมกับภาพแนวตั้งบนมือถือ */
         height: 0;
-    }
-    /* Footer */
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .social-icons.footer-social-icons {
-        justify-content: center;
+        margin-top: 62px;
     }
 }
