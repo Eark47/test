@@ -1,33 +1,23 @@
-
+/* การตั้งค่าพื้นฐาน */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-    font-family: 'Inter', sans-serif;
-    background-image: url('pic/BGHometest.png'); 
-    background-repeat: no-repeat; 
-    background-size: contain;
-    background-position: center center; /* <-- จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
-   
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-@media (max-width: 768px) {
-    body {
-        background-size: auto 100%; /* <-- ทำให้สูงเต็มจอ แต่กว้างอัตโนมัติ */
-        background-position: top center; /* <-- จัดตำแหน่งรูปภาพให้ชิดขอบบน */
-    }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-image: url('pic/BGHometest.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 /* Styles for the main header element */
 .header {
-    /* เปลี่ยนเป็นสีไล่เฉด */
     background-image: linear-gradient(to right, #486288, #2a466d);
-    color: rgb(242, 245, 248);
     padding: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
@@ -36,8 +26,7 @@ body {
 }
 .header-container {
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -45,25 +34,15 @@ body {
     gap: 1rem;
     padding: 0 20px;
 }
-
-@media (min-width: 768px) {
-    .header-container {
-        flex-direction: row;
-        gap: 0;
-    }
-}
-
 .logo-and-title {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-
 .logo {
     width: 60px;
-    height: 60px;    
+    height: 60px;
 }
-
 .header-title {
     font-family: 'Athiti', serif;
     font-size: 1.5rem;
@@ -71,60 +50,57 @@ body {
     text-decoration: none;
     color: rgb(242, 245, 248);
 }
-
-@media (min-width: 768px) {
-    .header-title {
-        font-size: 1.4rem;
-    }
-}
-
 .header-right-side {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-
 .header-links {
     display: flex;
     gap: 1rem;
 }
-
 .header-link {
     font-family: 'Athiti', serif;
     color: white;
     text-decoration: none;
     transition: color 0.3s;
 }
-
 .header-link:hover {
     color: #0a60c2;
 }
-
 .social-icons {
     display: flex;
     gap: 1rem;
 }
-
 .social-link {
     color: white;
     transition: color 0.3s;
 }
-
 .facebook-link:hover {
     color: #3b82f6;
 }
-
 .youtube-link:hover {
     color: #ef4444;
 }
 
+/* Styles for the main content section */
+.main-content {
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 1rem;
+    padding-top: 100px; /* เพิ่ม padding-top เพื่อกันเนื้อหาไม่ให้ทับ Header */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Styles for the slideshow */
 .slideshow-container {
     width: 100%;
     position: relative;
-    margin: auto;
     overflow: hidden;
-    height: 600px; /* ปรับค่านี้: ลองเพิ่ม/ลดความสูงเพื่อให้เห็นส่วนหัวของภาพ */
-    margin-top: 80px; /* ควรเปลี่ยนเป็น padding-top บน main-content แทน */
+    height: 600px; /* ปรับความสูงที่เหมาะสม */
+    margin-top: 100px; 
 }
 .mySlides {
     position: absolute;
@@ -138,25 +114,15 @@ body {
 .mySlides img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* รักษาภาพให้เต็มพื้นที่ */
-    object-position: center top; /* เพิ่มตรงนี้: ให้ภาพแสดงผลโดยยึดขอบบน */
+    object-fit: contain; /* ทำให้ภาพเต็มพื้นที่ container */
+    object-position: center top;
     background-color: transparent;
 }
 .mySlides.active {
     opacity: 1;
 }
 
-/* --- Media Queries สำหรับมือถือ --- */
-@media (max-width: 768px) {
-    .slideshow-container {
-        height: 280px; /* ปรับลดความสูงสำหรับมือถือ */
-        margin-top: 0; /* ลบ margin-top ตรงนี้ */
-    }
-    .mySlides img {
-        object-position: center top; /* ยังคงให้ยึดขอบบน */
-    }
-}
-/* Styles for the navigation buttons */
+/* Styles for the navigation buttons and dots */
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -168,22 +134,25 @@ body {
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    border-radius: 50%;
     user-select: none;
+    border: 2px solid white;
+    user-select: none;
+    width: 50px; /* กำหนดความกว้างและความสูงให้เท่ากันเพื่อให้เป็นวงกลมที่สมบูรณ์ */
+    height: 50px;
+    display: flex; /* ใช้ flexbox เพื่อจัดไอคอนลูกศรให้อยู่ตรงกลาง */
+    align-items: center;
+    justify-content: center;
 }
 
-/* Position the "next button" to the right */
 .next {
     right: 0;
-    border-radius: 3px 0 0 3px;
+    
 }
-
-/* On hover, add a black background with a little opacity */
 .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
+    
 }
-
-/* Styles for the dot indicators */
 .dot {
     cursor: pointer;
     height: 15px;
@@ -194,31 +163,11 @@ body {
     display: inline-block;
     transition: background-color 0.6s ease;
 }
-
 .active, .dot:hover {
     background-color: #717171;
 }
 
-/* Styles for the main content section */
-.main-content {
-    
-    max-width: 1280px;
-    margin: 2rem auto;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-@media (min-width: 768px) {
-    .main-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
-}
-
-/* Styles for the main card (radio player and info) */
+/* Styles for the cards (no changes needed) */
 .main-card {
     background-color: #f9f8f7;
     padding: 1.5rem;
@@ -230,59 +179,37 @@ body {
     gap: 1rem;
     width: 100%;
 }
-
-@media (min-width: 768px) {
-    .main-card {
-        width: 40%;
-    }
-}
-
 .media-logo {
     width: 150px;
     height: 150px;
     border-radius: 0.5rem;
 }
-
 .media-info {
     text-align: center;
 }
-
 .station-name {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
-
 .description {
     color: #4b5563;
     font-size: 0.875rem;
 }
-
 .audio-player-wrapper {
     margin-top: 1rem;
 }
-
 .audio-player-wrapper audio {
-    width: 100%; /* ทำให้แถบเล่นเพลงมีความกว้างเต็มกล่อง */
-    height: 50px; /* ปรับความสูงของแถบเล่นเพลง */
-    margin-top: 20px; /* เพิ่มระยะห่างด้านบน */
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
 }
-
-/* Styles for the video and date container */
 .video-and-info-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     width: 100%;
 }
-
-@media (min-width: 768px) {
-    .video-and-info-container {
-        width: 60%;
-    }
-}
-
-/* Styles for the date card */
 .date-card {
     background-color: white;
     padding: 1.5rem;
@@ -290,14 +217,11 @@ body {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
 .date-card h3 {
     font-size: 1.25rem;
     font-weight: bold;
     color: #1f2937;
 }
-
-/* Styles for the video player card */
 .video-player-card {
     background-color: rgb(248, 244, 244);
     padding: 1.5rem;
@@ -305,19 +229,16 @@ body {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-
 .video-title {
     font-size: 1.00rem;
     font-weight: bold;
     margin-bottom: 1rem;
 }
-
 .video-wrapper {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+    padding-top: 56.25%;
 }
-
 .video-wrapper video {
     position: absolute;
     top: 0;
@@ -326,14 +247,11 @@ body {
     height: 100%;
     border-radius: 0.5rem;
 }
-
-/* Styles for the footer */
 .footer {
     background-color: #2a466d;
     color: white;
     padding: 2rem 1rem;
 }
-
 .footer-container {
     max-width: 1280px;
     margin: 0 auto;
@@ -343,48 +261,27 @@ body {
     text-align: center;
     gap: 2rem;
 }
-
-@media (min-width: 768px) {
-    .footer-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        text-align: left;
-    }
-}
-
 .footer-column {
     flex: 1;
 }
-
 .footer-logo {
     max-width: 100px;
     height: auto;
 }
-
 .footer-title {
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
-
 .footer-info-details p {
     font-size: 0.875rem;
     margin-bottom: 0.25rem;
 }
-
 .social-icons.footer-social-icons {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 0.5rem;
 }
-
-@media (min-width: 768px) {
-    .social-icons.footer-social-icons {
-        justify-content: flex-start;
-    }
-}
-
 .copyright {
     text-align: center;
     margin-top: 1rem;
@@ -400,11 +297,88 @@ body {
     margin: 2rem auto;
     line-height: 1.6;
 }
-
 .about-card h2 {
     font-size: 2rem;
     font-weight: bold;
     color: darkcyan;
     margin-bottom: 1rem;
     text-align: center;
+}
+/* สำหรับหน้าจอคอมพิวเตอร์ (768px ขึ้นไป) */
+@media (min-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        gap: 0;
+    }
+    .header-title {
+        font-size: 1.4rem;
+    }
+    .main-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding-top: 60px;
+    }
+    .main-card {
+        width: 40%;
+    }
+    .video-and-info-container {
+        width: 60%;
+    }
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .social-icons.footer-social-icons {
+        justify-content: flex-start;
+    }
+}
+
+/* สำหรับหน้าจอมือถือ (ไม่เกิน 768px) */
+@media (max-width: 768px) {
+    /* พื้นหลัง */
+    body {
+        background-size: cover;
+        background-position: top center;
+    }
+    /* Header */
+    .header {
+        height: 60px; /* กำหนดความสูงของ Header บนมือถือ */
+    }
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .header-title {
+        font-size: 1.4rem;
+    }
+    /* Main Content */
+    .main-content {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 60px; /* ปรับค่านี้ให้เท่ากับความสูงของ Header บนมือถือ */
+    }
+    .main-card {
+        width: 100%;
+    }
+    .video-and-info-container {
+        width: 100%;
+    }
+    /* Slideshow */
+    .slideshow-container {
+        padding-top: 75%; /* ปรับสัดส่วนเป็น 4:3 สำหรับมือถือ */
+        height: 0;
+    }
+    /* Footer */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .social-icons.footer-social-icons {
+        justify-content: center;
+    }
 }

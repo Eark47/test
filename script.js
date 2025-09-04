@@ -22,35 +22,32 @@ function plusSlides(n) {
     startAutoSlideshow();
 }
 
-// Function to go directly to a specific slide (n)
-function currentSlide(n) {
-    if (autoSlideInterval) {
-        clearInterval(autoSlideInterval);
-    }
-    showSlides(slideIndex = n);
-    startAutoSlideshow();
-}
-
-// Main function to display the correct slide
+// ฟังก์ชันหลักที่ใช้แสดงผลสไลด์
 function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
     
-    // จัดการการวนลูปของสไลด์
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    
-    // ลบคลาส active ออกจากสไลด์และจุดทั้งหมด
-    for (i = 0; i < slides.length; i++) {
-        slides[i].classList.remove("active");
+    // จัดการการวนลูป
+    if (n > slides.length) {
+        slideIndex = 1;
     }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    
+    // ตั้งค่า opacity ของทุกสไลด์เป็น 0
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = "0";
+    }
+    
+    // ลบคลาส 'active' ออกจาก dot ทั้งหมด
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     
-    // เพิ่มคลาส active ให้กับสไลด์และจุดที่กำลังแสดงผล
-    slides[slideIndex - 1].classList.add("active");
+    // แสดงสไลด์ปัจจุบันและเพิ่มคลาส 'active' ให้ dot
+    slides[slideIndex - 1].style.opacity = "1";
     dots[slideIndex - 1].className += " active";
 }
 
