@@ -1,14 +1,13 @@
-/* schedule_style.css */
 body {
-    background-image: url('pic/pic\ bg\ 3.png'); /* เปลี่ยน 'URL_ของ_รูปภาพ_เมฆ_การ์ตูน.png' เป็นลิงก์ของรูปภาพที่คุณต้องการใช้ */
-    background-size: cover; /* ทำให้รูปภาพครอบคลุมพื้นที่ทั้งหมด */
-    background-repeat: no-repeat; /* ไม่ให้รูปภาพซ้ำ */
-    background-attachment: fixed; /* ทำให้รูปภาพพื้นหลังอยู่กับที่เมื่อเลื่อนหน้าจอ */
-    background-position: center center; /* จัดตำแหน่งรูปภาพให้อยู่ตรงกลาง */
-    margin: 0; /* ลบระยะขอบเริ่มต้นของ body */
-    padding: 0; /* ลบระยะห่างภายในเริ่มต้นของ body */
+    background-image: url('pic/pic\ bg\ 3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
 
 .schedule-container {
     background-color: #ffffff;
@@ -22,6 +21,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 20px auto;
+    box-sizing: border-box;
 }
 
 .schedule-title {
@@ -66,42 +66,52 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    font-size: 16px; /* ปรับขนาดตัวอักษรให้ดูสบายตาขึ้น */
+    font-size: 16px;
+    table-layout: fixed; /* สำคัญ: กำหนด layout ตารางแบบคงที่ */
 }
 
 .schedule-table th,
 .schedule-table td {
-    padding: 15px; /* เพิ่มระยะห่างภายในเซลล์ให้กว้างขึ้น */
-    border: 1px solid #ddd; /* เพิ่มเส้นขอบเซลล์ */
-    text-align: left; /* จัดข้อความให้อยู่ทางซ้าย */
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    word-wrap: break-word; /* สำคัญ: ทำให้ข้อความยาวๆ ขึ้นบรรทัดใหม่ได้ */
 }
+
 .schedule-table th {
-    background-color: #f2f2f2; /* สีพื้นหลังส่วนหัว */
-    font-weight: bold; /* ทำตัวหนาในส่วนหัว */
-    white-space: nowrap; /* ไม่ให้ข้อความในส่วนหัวขึ้นบรรทัดใหม่ */
+    background-color: #f2f2f2;
+    font-weight: bold;
+    white-space: nowrap; /* สำหรับหัวข้อ อาจจะไม่ต้องขึ้นบรรทัดใหม่ */
 }
-/* Column width adjustments */
+
 .schedule-table th:nth-child(1),
 .schedule-table td:nth-child(1) {
-    width: 17%; /* คอลัมน์ "เวลา" */
+    width: 15%; /* ปรับความกว้างคอลัมน์เวลา */
+    white-space: nowrap; /* ทำให้เวลาอยู่ในบรรทัดเดียว */
 }
 
 .schedule-table th:nth-child(2),
 .schedule-table td:nth-child(2) {
-    width: 45%; /* คอลัมน์ "รายการ" */
+    width: 40%; /* ปรับความกว้างคอลัมน์รายการ */
 }
 
 .schedule-table td:nth-child(3) img {
-    width: 150px; /* กำหนดความกว้างของรูปภาพให้เท่ากัน */
-    height: 150px; /* กำหนดความสูงของรูปภาพให้เท่ากัน */
-    display: block; /* ทำให้รูปภาพเป็นบล็อก */
-    margin: 0 auto; /* จัดรูปภาพให้อยู่กึ่งกลางในเซลล์ */
-    object-fit: cover; /* ปรับขนาดรูปภาพให้เต็มกรอบโดยไม่ผิดสัดส่วน */
-    border-radius: 10px; /* เพิ่มขอบมนเล็กน้อยเพื่อความสวยงาม */
+    width: 100px; /* ลดขนาดรูปภาพลงเล็กน้อย */
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 10px;
 }
+.schedule-table th:nth-child(3),
+.schedule-table td:nth-child(3) {
+    width: 15%; /* ปรับความกว้างคอลัมน์รูปภาพ */
+    text-align: center; /* จัดรูปภาพให้อยู่ตรงกลาง */
+}
+
 .schedule-table th:nth-child(4),
 .schedule-table td:nth-child(4) {
-    width: 30%; /* คอลัมน์ "ผู้ดำเนินรายการ" */
+    width: 30%; /* ปรับความกว้างคอลัมน์ผู้ดำเนินรายการ */
 }
 
 .home-button {
@@ -112,61 +122,165 @@ body {
     font-weight: bold;
     text-decoration: none;
     transition: background-color 0.3s, color 0.3s;
-    margin-left: 1rem; /* เพิ่มระยะห่างทางซ้ายเพื่อให้มีช่องว่าง */
+    margin-left: 1rem;
 }
 
 .home-button:hover {
     background-color: #f0f0f0;
     color: darkcyan;
 }
+
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
-    /* เพิ่มโค้ด 3 บรรทัดนี้เพื่อจัดเรียงทุกอย่างใน Header ให้ชิดขวา */
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-/* Container ที่รวมลิงก์และปุ่มทั้งหมด */
 .header-right-side {
     display: flex;
     align-items: center;
     gap: 20px;
     flex-direction: row-reverse;
-    padding-right: 15px; /* เพิ่ม padding เพื่อขยับปุ่มเข้ามาจากขอบขวา */
+    padding-right: 15px;
 }
-
 
 /* เพิ่มสีหัวข้อตารางสำหรับแต่ละวัน */
 .schedule-table.day-mon thead th {
-    background-color: #F5E1A4; /* สีน้ำเงินสำหรับวันจันทร์ */
+    background-color: #F5E1A4;
     color: black;
 }
 .schedule-table.day-tue thead th {
-    background-color: #ffd1ff; /* สีชมพูสำหรับวันอังคาร */
+    background-color: #ffd1ff;
     color: black;
 }
 .schedule-table.day-wed thead th {
-    background-color: #06cd6a; /* สีเขียวสำหรับวันพุธ */
+    background-color: #06cd6a;
     color: black;
 }
 .schedule-table.day-thu thead th {
-    background-color: #f59a38ea; /* สีเหลืองสำหรับวันพฤหัสบดี */
-    color: black(241, 240, 240);
+    background-color: #f59a38ea;
+    color: black;
 }
 .schedule-table.day-fri thead th {
-    background-color: #91d4f6; /* สีม่วงสำหรับวันศุกร์ */
+    background-color: #91d4f6;
     color: black;
 }
 .schedule-table.day-sat thead th {
-    background-color: #cf77f2; /* สีส้มสำหรับวันเสาร์ */
+    background-color: #cf77f2;
     color: black;
 }
 .schedule-table.day-sun thead th {
-    background-color: #b51232; /* สีแดงสำหรับวันอาทิตย์ */
+    background-color: #b51232;
     color: black;
+}
+
+/* --- Responsive Table (Card Layout) for Mobile --- */
+@media (max-width: 768px) {
+    .schedule-tabs {
+        flex-wrap: wrap;
+    }
+
+    .tab-button {
+        font-size: 1em;
+        padding: 10px 15px;
+        margin-bottom: 5px;
+    }
+
+    .header {
+        position: static;
+        padding-top: 20px;
+    }
+    
+    .header-right-side {
+        justify-content: center;
+        width: 100%;
+        padding-right: 0;
+    }
+    
+    .home-button {
+        margin-left: 0;
+    }
+
+    .schedule-table {
+        border: 0;
+        display: block;
+        width: 100%;
+        table-layout: auto;
+    }
+
+    .schedule-table thead {
+        display: none;
+    }
+
+    .schedule-table tbody {
+        display: block;
+    }
+
+    .schedule-table tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .schedule-table td {
+        border: none;
+        position: relative;
+        padding: 5px 10px;
+        font-size: 14px;
+        display: flex; /* ใช้ Flexbox เพื่อจัดการการแสดงผล */
+        flex-direction: column; /* จัดให้ label และ content อยู่คนละบรรทัด */
+        align-items: flex-start; /* จัดแนวเนื้อหาให้ชิดซ้าย */
+    }
+
+    .schedule-table td:first-of-type {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        font-size: 13px;
+    }
+    
+    .schedule-table td:nth-child(2),
+    .schedule-table td:nth-child(4) {
+        text-align: left;
+    }
+    
+    .schedule-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #555;
+        margin-bottom: 5px; /* เพิ่มระยะห่างด้านล่าง label */
+        font-size: 12px; /* ปรับขนาดฟอนต์ของ label */
+        white-space: nowrap; /* ป้องกันไม่ให้ label ขึ้นบรรทัดใหม่ */
+    }
+    
+    .schedule-table td:nth-child(3) {
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .schedule-table td:nth-child(3)::before {
+        content: attr(data-label); /* แสดง label ของรูปภาพ */
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .schedule-table td img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 10px auto;
+        object-fit: contain;
+        border-radius: 10px;
+    }
 }

@@ -1,411 +1,588 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ตารางออกอากาศ - สถานีวิทยุ อ.ส. พระราชวังดุสิต</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-     <link rel="stylesheet" href="schedulestyle.css"> 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตารางออกอากาศ - สถานีวิทยุ อ.ส. พระราชวังดุสิต</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="schedulestyle.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-            <div class="header-right-side">
-                <a href="home.html" class="header-link home-button">กลับสู่หน้าหลัก</a>
-                
-            </div>
-        
-    </header>
+    <header>
+        <div class="header-right-side">
+            <a href="home.html" class="header-link home-button">กลับสู่หน้าหลัก</a>
+        </div>
+    </header>
 
-    <main class="content-container">
-        <div class="schedule-container">
-            <h2 class="schedule-title">ผังรายการ</h2>
-            <div class="schedule-tabs">
-                <button class="tab-button active" onclick="openDay(event, 'mon')">จันทร์</button>
-                <button class="tab-button" onclick="openDay(event, 'tue')">อังคาร</button>
-                <button class="tab-button" onclick="openDay(event, 'wed')">พุธ</button>
-                <button class="tab-button" onclick="openDay(event, 'thu')">พฤหัสบดี</button>
-                <button class="tab-button" onclick="openDay(event, 'fri')">ศุกร์</button>
-                <button class="tab-button" onclick="openDay(event, 'sat')">เสาร์</button>
-                <button class="tab-button" onclick="openDay(event, 'sun')">อาทิตย์</button>
-            </div>
+    <main class="content-container">
+        <div class="schedule-container">
+            <h2 class="schedule-title">ผังรายการ</h2>
+            <div class="schedule-tabs">
+                <button class="tab-button active" onclick="openDay(event, 'mon')">จันทร์</button>
+                <button class="tab-button" onclick="openDay(event, 'tue')">อังคาร</button>
+                <button class="tab-button" onclick="openDay(event, 'wed')">พุธ</button>
+                <button class="tab-button" onclick="openDay(event, 'thu')">พฤหัสบดี</button>
+                <button class="tab-button" onclick="openDay(event, 'fri')">ศุกร์</button>
+                <button class="tab-button" onclick="openDay(event, 'sat')">เสาร์</button>
+                <button class="tab-button" onclick="openDay(event, 'sun')">อาทิตย์</button>
+            </div>
 
-            <div id="mon" class="tab-content">
-                <table class="schedule-table">
-                    <thead><tr><th>เวลา</th><th>รายการ</th><th>โลโก้</th>
-                            <th>ผู้ดำเนินรายการ</th></tr></thead>
-                    <tbody>
-                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
+            <div id="mon" class="tab-content">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>เวลา</th>
+                            <th>รายการ</th>
+                            <th>โลโก้</th>
+                            <th>ผู้ดำเนินรายการ</th>
                         </tr>
-                        <tr><td>11:00 - 11:30 น.</td><td>รายการโภชนาการน่ารู้</td>
-                            <td><img src="pic/Logo pochanakarn2.png" alt="โลโก้รายการ1"></td>
-                            <td>คุณA</td>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="เวลา">09:00 - 11:00 น.</td>
+                            <td data-label="รายการ">ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>11:30 - 12:00 น.</td><td>ดนตรีสากล</td>
-                            <td><img src="pic/Logo musicinter.webp" alt="โลโก้รายการ1"></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">11:00 - 11:30 น.</td>
+                            <td data-label="รายการ">รายการโภชนาการน่ารู้</td>
+                            <td data-label="โลโก้"><img src="pic/Logo pochanakarn2.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">คุณA</td>
                         </tr>
-                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">11:30 - 12:00 น.</td>
+                            <td data-label="รายการ">ดนตรีสากล</td>
+                            <td data-label="โลโก้"><img src="pic/Logo musicinter.webp" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">12:00 - 13.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">13:00 - 13:10 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">13.10 - 16.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>16:15 - 16.45 น.</td><td>เพลงสำหรับเด็ก</td>
-                            <td><img src="pic/logo child.png" alt="โลโก้รายการ1"></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">16:00 - 16.15 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>16:45 - 17.15 น.</td><td>รายการศาสนา</td>
-                            <td><img src="pic/Logo sasanar.png" alt="โลโก้รายการ1"></td>
-                            <td>พระธรรมเมธาภรณ์ (ระแบบ ฐิตญาโณ)</td>
+                        <tr>
+                            <td data-label="เวลา">16:15 - 16.45 น.</td>
+                            <td data-label="รายการ">เพลงสำหรับเด็ก</td>
+                            <td data-label="โลโก้"><img src="pic/logo child.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">16:45 - 17.15 น.</td>
+                            <td data-label="รายการ">รายการศาสนา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo sasanar.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">พระธรรมเมธาภรณ์ (ระแบบ ฐิตญาโณ)</td>
                         </tr>
-                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">17:15 - 18.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
+                        <tr>
+                            <td data-label="เวลา">18.00 - 19.00 น.</td>
+                            <td data-label="รายการ">เคารพธงชาติ เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                                                 </tbody>
-                </table>
-            </div>
-            
-            <div id="tue" class="tab-content">
-            <table class="schedule-table">
-                    <thead><tr><th>เวลา</th><th>รายการ</th><th>โลโก้</th>
-                            <th>ผู้ดำเนินรายการ</th></tr></thead>
-                    <tbody>
-                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td><td>
-                            </td>
-                            <td></td>
+            <div id="tue" class="tab-content">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>เวลา</th>
+                            <th>รายการ</th>
+                            <th>โลโก้</th>
+                            <th>ผู้ดำเนินรายการ</th>
                         </tr>
-                        <tr><td>11:00 - 11:30 น.</td><td>ตอบปัญหาทางธรรมมะ</td>
-                            <td><img src="pic/logottb.png" alt="โลโก้รายการ1"></td>
-                            <td>พระเทพวิมลญาณ (ถาวร จิตฺตถาวโร)</td>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="เวลา">09:00 - 11:00 น.</td>
+                            <td data-label="รายการ">ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>11:30 - 12:00 น.</td><td>ดนตรีไทย</td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">11:00 - 11:30 น.</td>
+                            <td data-label="รายการ">ตอบปัญหาทางธรรมมะ</td>
+                            <td data-label="โลโก้"><img src="pic/logottb.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">พระเทพวิมลญาณ (ถาวร จิตฺตถาวโร)</td>
                         </tr>
-                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">11:30 - 12:00 น.</td>
+                            <td data-label="รายการ">ดนตรีไทย</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">12:00 - 13.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">13:00 - 13:10 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">13.10 - 16.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>16:15 - 16.45 น.</td><td>เพลงสำหรับเด็ก</td>
-                            <td><img src="pic/logo child.png" alt="โลโก้รายการ1"></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">16:00 - 16.15 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>16:45 - 17.15 น.</td><td>รายการยุวพทธิกฯ</td>
-                            <td><img src="pic/Logo yuvaput.png" alt="โลโก้รายการ1"></td>
-                            <td>รศ.ดร.วิไล เทียนรุ่งโรจน์</td>
+                        <tr>
+                            <td data-label="เวลา">16:15 - 16.45 น.</td>
+                            <td data-label="รายการ">เพลงสำหรับเด็ก</td>
+                            <td data-label="โลโก้"><img src="pic/logo child.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">16:45 - 17.15 น.</td>
+                            <td data-label="รายการ">รายการยุวพทธิกฯ</td>
+                            <td data-label="โลโก้"><img src="pic/Logo yuvaput.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">รศ.ดร.วิไล เทียนรุ่งโรจน์</td>
                         </tr>
-                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">17:15 - 18.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        </tbody>
-                </table>
-            </div>
-            
-            <div id="wed" class="tab-content">
-                <table class="schedule-table">
-                    <thead><tr><th>เวลา</th><th>รายการ</th><th>โลโก้</th>
-                            <th>ผู้ดำเนินรายการ</th></tr></thead>
-                    <tbody>
-                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
+                        <tr>
+                            <td data-label="เวลา">18.00 - 19.00 น.</td>
+                            <td data-label="รายการ">เคารพธงชาติ เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
                         </tr>
-                        <tr><td>11:00 - 11:30 น.</td><td>รายการพบหมอศิริราช</td>
-                            <td><img src="pic/logo pobmor.jfif" alt="โลโก้รายการ1"></td>
-                            <td>คุณจันทร์จิรา เรือนศร</td>
-                        </tr>
-                        <tr><td>11:30 - 12:00 น.</td><td>รายการบริหารทางจิต</td>
-                            <td><img src="pic/Logo borihan.png" alt="โลโก้รายการ1"></td>
-                            <td>สมเด็จพระสังฆราชเจ้า กรมหลวงวชิรญาณสังวร</td>
-                        </tr>
-                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:15 - 16.30 น.</td><td>รายการคลื่นเกษตรกร</td>
-                            <td><img src="pic/logo kasat.png" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:30 - 17.15 น.</td><td>รายการ TO BE NUMBERONE Variety</td>
-                            <td><img src="pic/Logo tobenumberone.jfif" alt="โลโก้รายการ1"></td>
-                            <td>ทูลกระหม่อมหญิงอุบลรัตนราชกัญญา สิริวัฒนาพรรณวดี</td>
-                        </tr>
-                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                </table>
-            </div>
-            <div id="thu" class="tab-content">
-                <table class="schedule-table">
-                    <thead><tr><th>เวลา</th><th>รายการ</th><th>โลโก้</th>
-                            <th>ผู้ดำเนินรายการ</th></tr></thead>
-                    <tbody>
-                        <tr><td>09:00 - 12:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:15 - 16.30 น.</td><td>เพลงสำหรับเด็ก</td>
-                            <td><img src="pic/logo child.png" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:30 - 16.45 น.</td><td>รายการสภาสตรีฯ</td>
-                            <td><img src="pic/Logo saphasatree.jfif" alt="โลโก้รายการ1"></td>
-                            <td>รศ.ดร.วิไล เทียนรุ่งโรจน์</td>
-                        </tr>
-                        <tr><td>16.45 - 17.15 น.</td><td>รายการธรรมปฏิบัติ</td>
-                            <td><img src="pic/Logo tumma.png" alt="โลโก้รายการ1"></td>
-                            <td>พระเทพวิมลญาณ (ถาวร จิตฺตถาวโร)</td>
-                        </tr>
-                        <tr><td>17.15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                </table>
-            </div>
-            <div id="fri" class="tab-content" >
-               <table class="schedule-table">
-                    <thead><tr><th>เวลา</th><th>รายการ</th><th>โลโก้</th>
-                            <th>ผู้ดำเนินรายการ</th></tr></thead>
-                    <tbody>
-                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td> 
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>11:00 - 11:30 น.</td><td>รายการทหาร</td>
-                            <td><img src="pic/Logo Tahan.png" alt="โลโก้รายการ1"></td>
-                            <td>คุณA</td>
-                        </tr>
-                        <tr><td>11:30 - 12:00 น.</td><td>ดนตรีไทย</td> 
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td> 
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13:00 - 13:10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td> 
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13.10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td> 
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td> 
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:15 - 17.15 น.</td><td>รายการดนตรีนักเรียน</td> 
-                            <td><img src="pic/logo student.png" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>17.15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา</td> 
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td> 
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                </table>
-            </div>
-            <div id="sat" class="tab-content" >
-                <table class="schedule-table">
-                    <thead><tr><th>เวลา</th><th>รายการ</th><th>โลโก้</th>
-                            <th>ผู้ดำเนินรายการ</th></tr></thead>
-                    <tbody>
-                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>11:00 - 12.00 น.</td><td>ดนตรีสากล</td>
-                            <td><img src="pic/Logo musicinter.webp" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13.00 - 13.10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13:10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:15 - 17.15 น.</td><td>บทเพลงพระราชนิพนธ์</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                </table>
-             </div>
-            <div id="sun" class="tab-content">
-                <table class="schedule-table">
-                    <thead><tr><th>เวลา</th><th>รายการ</th><th>โลโก้</th>
-                            <th>ผู้ดำเนินรายการ</th></tr></thead>
-                    <tbody>
-                        <tr><td>09:00 - 11:00 น.</td><td>ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>11:00 - 12.00 น.</td><td>ดนตรีสากล</td>
-                            <td><img src="pic/Logo musicinter.webp" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>12:00 - 13.00 น.</td><td>เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13.00 - 13.10 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>13:10 - 16.00 น.</td><td>เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:00 - 16.15 น.</td><td>ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
-                            <td><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>16:15 - 17.15 น.</td><td>บทเพลงพระราชนิพนธ์</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>17:15 - 18.00 น.</td><td>เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr><td>18.00 - 19.00 น.</td><td>เคารพธงชาติ เพลงสถานีไทย-สากล</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        </tbody>
-                </table>
-             </div>
-        </div>
-    </main>
+                    </tbody>
+                </table>
+            </div>
 
- 
-  <script>
-        function openDay(evt, dayName) {
-            var i, tabcontent, tabbuttons;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-            }
-            tabbuttons = document.getElementsByClassName("tab-button");
-            for (i = 0; i < tabbuttons.length; i++) {
-                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
-            }
-            document.getElementById(dayName).style.display = "block";
-            evt.currentTarget.className += " active";
-    
-            // โค้ดใหม่: เพื่อเปลี่ยนสีหัวข้อตารางตามวัน
-            // เลือกตารางที่อยู่ใน div ของวันนั้นๆ โดยตรง
-            var scheduleTable = document.querySelector("#" + dayName + " .schedule-table");
-            
-            // ลบคลาสวันเก่าออก
-            scheduleTable.className = "schedule-table";
-            
-            // เพิ่มคลาสวันใหม่
-            scheduleTable.classList.add("day-" + dayName);
-        }
-    
-        // กำหนดสีเริ่มต้นเมื่อโหลดหน้า
-        window.onload = function() {
-            openDay({currentTarget: document.querySelector('.tab-button.active')}, 'mon');
-        };
-    </script>
+            <div id="wed" class="tab-content">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>เวลา</th>
+                            <th>รายการ</th>
+                            <th>โลโก้</th>
+                            <th>ผู้ดำเนินรายการ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="เวลา">09:00 - 11:00 น.</td>
+                            <td data-label="รายการ">ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">11:00 - 11:30 น.</td>
+                            <td data-label="รายการ">รายการพบหมอศิริราช</td>
+                            <td data-label="โลโก้"><img src="pic/logo pobmor.jfif" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">คุณจันทร์จิรา เรือนศร</td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">11:30 - 12:00 น.</td>
+                            <td data-label="รายการ">รายการบริหารทางจิต</td>
+                            <td data-label="โลโก้"><img src="pic/Logo borihan.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">สมเด็จพระสังฆราชเจ้า กรมหลวงวชิรญาณสังวร</td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">12:00 - 13.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13:00 - 13:10 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13.10 - 16.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:00 - 16.15 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:15 - 16.30 น.</td>
+                            <td data-label="รายการ">รายการคลื่นเกษตรกร</td>
+                            <td data-label="โลโก้"><img src="pic/logo kasat.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:30 - 17.15 น.</td>
+                            <td data-label="รายการ">รายการ TO BE NUMBERONE Variety</td>
+                            <td data-label="โลโก้"><img src="pic/Logo tobenumberone.jfif" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">ทูลกระหม่อมหญิงอุบลรัตนราชกัญญา สิริวัฒนาพรรณวดี</td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">17:15 - 18.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">18.00 - 19.00 น.</td>
+                            <td data-label="รายการ">เคารพธงชาติ เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="thu" class="tab-content">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>เวลา</th>
+                            <th>รายการ</th>
+                            <th>โลโก้</th>
+                            <th>ผู้ดำเนินรายการ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="เวลา">09:00 - 12:00 น.</td>
+                            <td data-label="รายการ">ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">12:00 - 13.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13:00 - 13:10 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13.10 - 16.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:00 - 16.15 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:15 - 16.30 น.</td>
+                            <td data-label="รายการ">เพลงสำหรับเด็ก</td>
+                            <td data-label="โลโก้"><img src="pic/logo child.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:30 - 16.45 น.</td>
+                            <td data-label="รายการ">รายการสภาสตรีฯ</td>
+                            <td data-label="โลโก้"><img src="pic/Logo saphasatree.jfif" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">รศ.ดร.วิไล เทียนรุ่งโรจน์</td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16.45 - 17.15 น.</td>
+                            <td data-label="รายการ">รายการธรรมปฏิบัติ</td>
+                            <td data-label="โลโก้"><img src="pic/Logo tumma.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">พระเทพวิมลญาณ (ถาวร จิตฺตถาวโร)</td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">17.15 - 18.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทย-สากล ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">18.00 - 19.00 น.</td>
+                            <td data-label="รายการ">เคารพธงชาติ เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="fri" class="tab-content" >
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>เวลา</th>
+                            <th>รายการ</th>
+                            <th>โลโก้</th>
+                            <th>ผู้ดำเนินรายการ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="เวลา">09:00 - 11:00 น.</td>
+                            <td data-label="รายการ">ข่าวจิตอาสา เพลงสถานีไทย-สากล</td> 
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">11:00 - 11:30 น.</td>
+                            <td data-label="รายการ">รายการทหาร</td>
+                            <td data-label="โลโก้"><img src="pic/Logo Tahan.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ">คุณA</td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">11:30 - 12:00 น.</td>
+                            <td data-label="รายการ">ดนตรีไทย</td> 
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">12:00 - 13.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td> 
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13:00 - 13:10 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td> 
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13.10 - 16.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td> 
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:00 - 16.15 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td> 
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:15 - 17.15 น.</td>
+                            <td data-label="รายการ">รายการดนตรีนักเรียน</td> 
+                            <td data-label="โลโก้"><img src="pic/logo student.png" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">17.15 - 18.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทย-สากล ข่าวจิตอาสา</td> 
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">18.00 - 19.00 น.</td>
+                            <td data-label="รายการ">เคารพธงชาติ เพลงสถานีไทย-สากล</td> 
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="sat" class="tab-content" >
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>เวลา</th>
+                            <th>รายการ</th>
+                            <th>โลโก้</th>
+                            <th>ผู้ดำเนินรายการ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="เวลา">09:00 - 11:00 น.</td>
+                            <td data-label="รายการ">ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">11:00 - 12.00 น.</td>
+                            <td data-label="รายการ">ดนตรีสากล</td>
+                            <td data-label="โลโก้"><img src="pic/Logo musicinter.webp" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">12:00 - 13.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13.00 - 13.10 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13:10 - 16.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:00 - 16.15 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:15 - 17.15 น.</td>
+                            <td data-label="รายการ">บทเพลงพระราชนิพนธ์</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">17:15 - 18.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">18.00 - 19.00 น.</td>
+                            <td data-label="รายการ">เคารพธงชาติ เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="sun" class="tab-content">
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>เวลา</th>
+                            <th>รายการ</th>
+                            <th>โลโก้</th>
+                            <th>ผู้ดำเนินรายการ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="เวลา">09:00 - 11:00 น.</td>
+                            <td data-label="รายการ">ข่าวจิตอาสา เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">11:00 - 12.00 น.</td>
+                            <td data-label="รายการ">ดนตรีสากล</td>
+                            <td data-label="โลโก้"><img src="pic/Logo musicinter.webp" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">12:00 - 13.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทยลูกกรุง เพลงไทยสากล ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13.00 - 13.10 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">13:10 - 16.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีลูกทุ่งลูกกรุง ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:00 - 16.15 น.</td>
+                            <td data-label="รายการ">ข่าวในพระราชสำนัก พยากรอากาศประจำวัน บทเพลงพระราชนิพนธ์ ข่าวจิตอาสา</td>
+                            <td data-label="โลโก้"><img src="pic/Logo kao.PNG" alt="โลโก้รายการ1"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">16:15 - 17.15 น.</td>
+                            <td data-label="รายการ">บทเพลงพระราชนิพนธ์</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">17:15 - 18.00 น.</td>
+                            <td data-label="รายการ">เพลงสถานีไทย-สากล ข่าวจิตอาสา </td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                        <tr>
+                            <td data-label="เวลา">18.00 - 19.00 น.</td>
+                            <td data-label="รายการ">เคารพธงชาติ เพลงสถานีไทย-สากล</td>
+                            <td data-label="โลโก้"></td>
+                            <td data-label="ผู้ดำเนินรายการ"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+    <script>
+        function openDay(evt, dayName) {
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+            document.getElementById(dayName).style.display = "block";
+            evt.currentTarget.className += " active";
+        
+            var scheduleTable = document.querySelector("#" + dayName + " .schedule-table");
+            scheduleTable.className = "schedule-table";
+            scheduleTable.classList.add("day-" + dayName);
+        }
+    
+        window.onload = function() {
+            openDay({currentTarget: document.querySelector('.tab-button.active')}, 'mon');
+        };
+    </script>
 </body>
 </html>

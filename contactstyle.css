@@ -20,24 +20,6 @@ body {
     margin: 0;
     font-size: 2.5rem;
 }
-
-.back-to-home-button {
-    position: absolute; /* กำหนดให้ปุ่มลอยอยู่เหนือองค์ประกอบอื่น */
-    top: 50%; /* จัดตำแหน่งในแนวตั้งให้อยู่กึ่งกลางของ header */
-    right: 20px; /* ย้ายปุ่มไปทางขวา 20px จากขอบของ header */
-    transform: translateY(-50%); /* เลื่อนปุ่มขึ้นครึ่งหนึ่งของความสูงของตัวเอง เพื่อให้กึ่งกลางจริง ๆ */
-    
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.back-to-home-button:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-}
 .contact-main {
     max-width: 1000px;
     margin: 30px auto;
@@ -158,8 +140,62 @@ body {
 .image-gallery img:hover {
     transform: scale(1.05);
 }
+/* ซ่อนปุ่มบนหน้าจอคอมพิวเตอร์ */
+.mobile-home-button {
+    display: none; 
+}
 
-/* Responsive Design */
+/* สำหรับหน้าจอมือถือ (ไม่เกิน 768px) */
 @media (max-width: 768px) {
-    /* โค้ดเดิม... */
+    .mobile-home-button {
+        display: flex !important; /* บังคับให้แสดงปุ่มในมือถือ */
+        position: fixed; /* ตรึงปุ่มให้อยู่กับที่ */
+        bottom: 20px; /* เว้นระยะห่างจากขอบล่าง 20px */
+        left: 50%; /* จัดตำแหน่งกึ่งกลางแนวนอน */
+        transform: translateX(-50%); /* ปรับตำแหน่งให้สมบูรณ์ */
+        z-index: 1000; /* ทำให้ปุ่มอยู่บนสุดของเนื้อหา */
+        
+        /* สไตล์ปุ่ม */
+        background-color: #2a466d;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        font-family: 'Kanit', sans-serif;
+    }
+}
+footer {
+    /* ทำให้ footer เป็น Flex Container */
+    display: flex;
+    flex-direction: column; /* เรียงองค์ประกอบจากบนลงล่าง */
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+    gap: 1rem; /* เพิ่มช่องว่างระหว่างองค์ประกอบ */
+    color: white;
+    padding: 2rem 1rem;
+}
+
+.footer-container {
+    /* สไตล์เดิมของ footer */
+    width: 100%;
+    text-align: center;
+}
+
+.footer-center-button {
+    /* สไตล์ปุ่ม */
+    background-color: #0d47a1;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+/* Hover effect */
+.footer-center-button:hover {
+    background-color: #002d73;
+    transform: translateY(-3px);
 }
