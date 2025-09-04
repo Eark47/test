@@ -37,25 +37,23 @@ function showSlides(n) {
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
     
-    if (n > slides.length) {
-        slideIndex = 1;
-    }
+    // จัดการการวนลูปของสไลด์
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
     
-    if (n < 1) {
-        slideIndex = slides.length;
-    }
-    
+    // ลบคลาส active ออกจากสไลด์และจุดทั้งหมด
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.opacity = "0";
+        slides[i].classList.remove("active");
     }
-    
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     
-    slides[slideIndex - 1].style.opacity = "1";
+    // เพิ่มคลาส active ให้กับสไลด์และจุดที่กำลังแสดงผล
+    slides[slideIndex - 1].classList.add("active");
     dots[slideIndex - 1].className += " active";
 }
+
 
 // Function to start the automatic slideshow
 function startAutoSlideshow() {

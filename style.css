@@ -28,11 +28,11 @@ body {
     color: rgb(242, 245, 248);
     padding: 1rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1000;
 }
 .header-container {
     max-width: 1200px;
@@ -118,14 +118,13 @@ body {
     color: #ef4444;
 }
 
-/* Styles for the Slideshow container */
 .slideshow-container {
     width: 100%;
     position: relative;
     margin: auto;
     overflow: hidden;
-    height: 600px; /* ความสูงสำหรับหน้าจอคอมพิวเตอร์ */
-    margin-top: 100px;
+    height: 600px; /* ปรับค่านี้: ลองเพิ่ม/ลดความสูงเพื่อให้เห็นส่วนหัวของภาพ */
+    margin-top: 80px; /* ควรเปลี่ยนเป็น padding-top บน main-content แทน */
 }
 .mySlides {
     position: absolute;
@@ -139,20 +138,22 @@ body {
 .mySlides img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* เพื่อให้ภาพเต็มพื้นที่เสมอ */
+    object-fit: cover; /* รักษาภาพให้เต็มพื้นที่ */
+    object-position: center top; /* เพิ่มตรงนี้: ให้ภาพแสดงผลโดยยึดขอบบน */
     background-color: transparent;
 }
+.mySlides.active {
+    opacity: 1;
+}
 
+/* --- Media Queries สำหรับมือถือ --- */
 @media (max-width: 768px) {
     .slideshow-container {
-        height: 250px; /* ปรับลดความสูงสำหรับมือถือ */
-        margin-top: 50px; /* แก้ไขตรงนี้: ลดระยะห่างจาก Header ลง */
+        height: 280px; /* ปรับลดความสูงสำหรับมือถือ */
+        margin-top: 0; /* ลบ margin-top ตรงนี้ */
     }
-    
-    .header {
-        position: fixed; /* หาก Header ของคุณเป็นแบบ fixed */
-        top: 0;
-        width: 100%;
+    .mySlides img {
+        object-position: center top; /* ยังคงให้ยึดขอบบน */
     }
 }
 /* Styles for the navigation buttons */
