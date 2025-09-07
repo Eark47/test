@@ -280,7 +280,8 @@ body {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 1.0rem;
+    margin-right: 200px; /* เพิ่ม margin ด้านขวาเพื่อผลักไปทางซ้าย */
 }
 .copyright {
     text-align: center;
