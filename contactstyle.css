@@ -165,37 +165,27 @@ body {
         font-family: 'Kanit', sans-serif;
     }
 }
-footer {
-    /* ทำให้ footer เป็น Flex Container */
-    display: flex;
-    flex-direction: column; /* เรียงองค์ประกอบจากบนลงล่าง */
-    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
-    gap: 1rem; /* เพิ่มช่องว่างระหว่างองค์ประกอบ */
-    color: white;
-    padding: 2rem 1rem;
-}
-
-.footer-container {
-    /* สไตล์เดิมของ footer */
-    width: 100%;
+/* จัดการ container หลัก */
+.footer {
     text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    
 }
 
-.footer-center-button {
-    /* สไตล์ปุ่ม */
-    background-color: #0d47a1;
+.footer-button {
     color: #fff;
+    background-color: #0d47a1;
     padding: 0.75rem 2rem;
     border-radius: 50px;
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
     font-weight: 500;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     display: inline-block;
 }
 
-/* Hover effect */
-.footer-center-button:hover {
+.footer-button:hover {
     background-color: #002d73;
     transform: translateY(-3px);
 }
