@@ -267,8 +267,7 @@ body {
 }
 .footer-logo {
     max-width: 150px;
-  
-    margin-left: 200px;
+    margin-left: 180px;
 }
 .footer-title {
     font-weight: bold;
@@ -307,6 +306,15 @@ body {
     margin-bottom: 1rem;
     text-align: center;
 }
+.mobile-slide {
+    display: none; /* ซ่อนรูปภาพสำหรับมือถือ */
+}
+.desktop-slide {
+    display: block; /* แสดงรูปภาพสำหรับคอมพิวเตอร์ */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* หรือ cover หากต้องการให้เต็มจอ */
+}
 
 /* สำหรับหน้าจอคอมพิวเตอร์ (768px ขึ้นไป) */
 @media (min-width: 768px) {
@@ -340,7 +348,7 @@ body {
     }
     .footer-logo {
         /* ลบ margin-left ที่คุณเคยตั้งไว้สำหรับเดสก์ท็อปออก */
-        margin-left: 0;
+        margin-left: 180px;
     }
 }
 /* Styles for the hamburger menu */
@@ -438,27 +446,28 @@ body {
     }
 
    .slideshow-container {
-    height: 0; /* Important: set height to 0 to make padding-top work as a height ratio */
-    padding-top: 56.25%; /* Use this for 16:9 images */
-    margin-top: 60px;
-    width: 100%;
-    position: relative; /* Keep this for absolute positioning of child elements */
-  }
+        height: 0;
+        padding-top: 80%; /* แก้ไขจาก 56.25% เป็น 125% */
+        margin-top: 60px; /* หรือค่าที่คุณต้องการ */
+        width: 100%;
+        position: relative;
+    }
 
-  .mySlides {
-    position: absolute; /* This allows the slides to be placed exactly within the container */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* No need to set height here, it inherits from the container */
-  }
-
-  .mySlides img {
+    .mySlides img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover; /* ต้องใช้ 'cover' เพื่อให้รูปเต็ม */
     }
+     .desktop-slide {
+        display: none; /* ซ่อนรูปภาพสำหรับคอมพิวเตอร์บนมือถือ */
+    }
+    .mobile-slide {
+        display: block; /* แสดงรูปภาพสำหรับมือถือ */
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* ทำให้รูปเต็มพื้นที่ */
+    }
+
     .footer-container {
         flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
         align-items: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
