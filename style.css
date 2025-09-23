@@ -338,6 +338,10 @@ body {
         align-items: flex-start;
         text-align: left;
     }
+    .footer-logo {
+        /* ลบ margin-left ที่คุณเคยตั้งไว้สำหรับเดสก์ท็อปออก */
+        margin-left: 0;
+    }
 }
 /* Styles for the hamburger menu */
 .hamburger-menu {
@@ -433,13 +437,44 @@ body {
         
     }
 
-    .slideshow-container {
-        height: 250px; /* ปรับความสูงให้เหมาะสมกับหน้าจอมือถือ */
-        margin-top: 60px; /* ปรับให้พอดีกับความสูงของ header */
+   .slideshow-container {
+    height: 0; /* Important: set height to 0 to make padding-top work as a height ratio */
+    padding-top: 56.25%; /* Use this for 16:9 images */
+    margin-top: 60px;
+    width: 100%;
+    position: relative; /* Keep this for absolute positioning of child elements */
+  }
+
+  .mySlides {
+    position: absolute; /* This allows the slides to be placed exactly within the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* No need to set height here, it inherits from the container */
+  }
+
+  .mySlides img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .footer-container {
+        flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+        align-items: center; /* จัดให้อยู่กึ่งกลางในแนวนอน */
+        text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
     }
 
-    .mySlides img {
-        /* ใช้ object-fit: cover เพื่อให้ภาพครอบคลุมพื้นที่ทั้งหมด */
-        object-fit: cover; 
+    .footer-logo {
+        /* ลบ margin-left ที่คุณเคยตั้งไว้ เพื่อให้โลโก้อยู่ตรงกลาง */
+        margin-left: 0;
+        margin-right: 0;
+        /* หากขนาดใหญ่เกินไป สามารถปรับขนาดได้ที่นี่ */
+        max-width: 100px;
+    }
+
+    .social-icons.footer-social-icons {
+        margin-right: 0;
+        justify-content: center; /* จัดไอคอนโซเชียลให้อยู่กึ่งกลาง */
     }
 }
