@@ -266,8 +266,9 @@ body {
     flex: 1;
 }
 .footer-logo {
-    max-width: 100px;
-    height: auto;
+    max-width: 150px;
+  
+    margin-left: 200px;
 }
 .footer-title {
     font-weight: bold;
@@ -432,10 +433,13 @@ body {
         
     }
 
-    /* Styles for the slideshow on mobile */
     .slideshow-container {
-        padding-top: 75%; /* ปรับสัดส่วนให้เหมาะสมกับภาพแนวตั้งบนมือถือ */
-        height: 0;
-        margin-top: 62px;
+        height: 250px; /* ปรับความสูงให้เหมาะสมกับหน้าจอมือถือ */
+        margin-top: 60px; /* ปรับให้พอดีกับความสูงของ header */
+    }
+
+    .mySlides img {
+        /* ใช้ object-fit: cover เพื่อให้ภาพครอบคลุมพื้นที่ทั้งหมด */
+        object-fit: cover; 
     }
 }
