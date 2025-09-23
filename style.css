@@ -101,6 +101,7 @@ body {
     overflow: hidden;
     height: 600px; /* ปรับความสูงที่เหมาะสม */
     margin-top: 100px; 
+    
 }
 .mySlides {
     position: absolute;
