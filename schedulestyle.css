@@ -179,6 +179,10 @@ body {
     background-color: #b51232;
     color: black;
 }
+html {
+    -webkit-filter: grayscale(100%); /* สำหรับ Chrome, Safari, Opera */
+    filter: grayscale(100%);         /* มาตรฐานหลัก */
+}
 
 /* --- Responsive Table (Card Layout) for Mobile --- */
 @media (max-width: 768px) {

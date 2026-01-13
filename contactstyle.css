@@ -144,6 +144,10 @@ body {
 .mobile-home-button {
     display: none; 
 }
+html {
+    -webkit-filter: grayscale(100%); /* สำหรับ Chrome, Safari, Opera */
+    filter: grayscale(100%);         /* มาตรฐานหลัก */
+}
 
 /* สำหรับหน้าจอมือถือ (ไม่เกิน 768px) */
 @media (max-width: 768px) {
