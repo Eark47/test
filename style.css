@@ -315,10 +315,7 @@ body {
     height: 100%;
     object-fit: contain; /* หรือ cover หากต้องการให้เต็มจอ */
 }
-html {
-    -webkit-filter: grayscale(100%); /* สำหรับ Chrome, Safari, Opera */
-    filter: grayscale(100%);         /* มาตรฐานหลัก */
-}
+
 
 /* สำหรับหน้าจอคอมพิวเตอร์ (768px ขึ้นไป) */
 @media (min-width: 768px) {
