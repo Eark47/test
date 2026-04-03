@@ -17,120 +17,119 @@
                 <a href="home.html" class="header-title">สถานีวิทยุ อ.ส. พระราชวังดุสิต</a>
             </div>
             <button class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
             <div class="header-right-side" id="nav-menu">
                 <div class="header-links">
                     <a href="about.html" class="header-link" target="_blank">ประวัติสถานี</a>
-                    <a href="contact.html" class="header-link"target="_blank">ติดต่อ</a>
-                    <a href="schedule.html" class="header-link"target="_blank">ตารางออกอากาศ</a>
+                    <a href="contact.html" class="header-link" target="_blank">ติดต่อ</a>
+                    <a href="schedule.html" class="header-link" target="_blank">ตารางออกอากาศ</a>
                 </div>
                 <div class="social-icons header-social-icons">
-                    <a href="https://www.facebook.com/share/19ncwMMy7K/" target="_blank" aria-label="Facebook Page" class="social-link facebook-link">
+                    <a href="https://www.facebook.com/share/19ncwMMy7K/" target="_blank" class="social-link facebook-link">
                         <i class="fa-brands fa-facebook fa-2x"></i>
                     </a>
-                    <a href="https://www.youtube.com/@Asradio-104" target="_blank" aria-label="YouTube Channel" class="social-link youtube-link">
+                    <a href="https://www.youtube.com/@Asradio-104" target="_blank" class="social-link youtube-link">
                         <i class="fa-brands fa-youtube fa-2x"></i>
                     </a>
                 </div>
             </div>
         </div>
     </header>
-       <div class="slideshow-container">
-    <div class="mySlides">
-        <img class="desktop-slide" src="pic/bghome1.png" alt="รูปภาพสไลด์ที่ 1">
-        <img class="mobile-slide" src="pic/bg mobile 2.png" alt="รูปภาพสไลด์ที่ 1 มือถือ">
-    </div>
-    <div class="mySlides">
-        <img class="desktop-slide" src="pic/Bghome2.png" alt="รูปภาพสไลด์ที่ 2">
-        <img class="mobile-slide" src="pic/BG-Mobile 1.png" alt="รูปภาพสไลด์ที่ 2 มือถือ">
-    </div>
-    <div class="mySlides">
-        <img class="desktop-slide" src="pic/BGhome3.png" alt="รูปภาพสไลด์ที่ 3">
-        <img class="mobile-slide" src="pic/bg-mobile 5.png" alt="รูปภาพสไลด์ที่ 3 มือถือ">
-    </div>
-    <div class="mySlides">
-        <img class="desktop-slide" src="pic/Bg4.png" alt="รูปภาพสไลด์ที่ 4">
-        <img class="mobile-slide" src="pic/bg-mobile 4.png" alt="รูปภาพสไลด์ที่ 4 มือถือ">
-    </div>
-</div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <img class="desktop-slide" src="pic/bghome1.png" alt="1">
+            <img class="mobile-slide" src="pic/bg mobile 2.png" alt="1มือถือ">
+        </div>
+        <div class="mySlides">
+            <img class="desktop-slide" src="pic/Bghome2.png" alt="2">
+            <img class="mobile-slide" src="pic/BG-Mobile 1.png" alt="2มือถือ">
+        </div>
+        <div class="mySlides">
+            <img class="desktop-slide" src="pic/BGhome3.png" alt="3">
+            <img class="mobile-slide" src="pic/bg-mobile 5.png" alt="3มือถือ">
+        </div>
+        <div class="mySlides">
+            <img class="desktop-slide" src="pic/Bg4.png" alt="4">
+            <img class="mobile-slide" src="pic/bg-mobile 4.png" alt="4มือถือ">
         </div>
 
-        <div style="text-align:center" class="slideshow-dots">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div style="text-align:center" class="slideshow-dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+    <main class="main-content">
+        <div class="main-card">
+            <img src="pic/logo2.png" alt="โลโก้วิทยุ" class="media-logo">
+            <div class="media-info">
+                <h2 class="station-name">RadioLive - สถานีวิทยุ อ.ส. พระราชวังดุสิต</h2>
+                <p class="description"><i>ออกอากาศในคลื่นความถี่ 104mhz Am 1332khz <br>ออกอากาศทุกวัน ตั้งแต่เวลา 9.00-19.00</i></p>
+                <div class="audio-player-wrapper">
+                    <audio id="myRadio" controls preload="none">
+                        <source src="https://radio9.plathong.net/7194/stream" type="audio/mpeg">
+                    </audio>
+                    <p id="status" style="font-size: 12px; color: gray;">สถานะ: พร้อมเล่น (กรุณากดคลิกส่วนใดก็ได้)</p>
+                </div>
+            </div>
         </div>
 
-        <main class="main-content">
-            <div class="main-card">
-                <img src="pic/logo2.png" alt="โลโก้วิทยุ" class="media-logo">
-                <div class="media-info">
-                    <h2 class="station-name">RadioLive - สถานีวิทยุ อ.ส. พระราชวังดุสิต</h2>
-                    <p class="description"><i>ออกอากาศในคลื่นความถี่ 104mhz Am 1332khz <br>ออกอากาศทุกวัน ตั้งแต่เวลา 9.00-19.00</i></p>
-                  <div class="audio-player-wrapper">
-    <audio id="myRadio" controls>
-       <audio id="myRadio" controls>
-        <source src="https://radio9.plathong.net/7194/stream" type="audio/mpeg">
-        เบราว์เซอร์ของคุณไม่รองรับ
-    </audio>
-    <p id="status" style="font-size: 12px; color: gray;">สถานะ: พร้อมเล่น (กรุณากดคลิกส่วนใดก็ได้)</p>
-</div>
+        <div class="video-and-info-container">
+            <div class="date-card">
+                <h3 id="current-date"></h3>
+            </div>
+            <div class="video-player-card">
+                <h3 class="video-title">วีดีโอแนะนำรายการ</h3>
+                <div class="video-wrapper">
+                    <video controls autoplay loop muted>
+                        <source src="pic/video1.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
-            <div class="video-and-info-container">
-                <div class="date-card">
-                    <h3 id="current-date"></h3>
-                </div>
-                <div class="video-player-card">
-                    <h3 class="video-title">วีดีโอแนะนำรายการ</h3>
-                    <div class="video-wrapper">
-                        <video controls autoplay loop muted>
-                            <source src="pic/video1.mp4" type="video/mp4">
-                            
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </main>
+        </div>
+    </main>
 
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-column logo-column">
-                    <img src="pic/logo2.png" alt="Footer Logo" class="footer-logo">
-                </div>
-                <div class="footer-column info-column">
-                    <p class="footer-title">สถานีวิทยุ อ.ส. พระราชวังดุสิต สวนจิตรลดา</p>
-                    <div class="footer-info-details">
-                        <p>ที่อยู่: สวนจิตรลดา แขวงดุสิต เขตดุสิต กรุงเทพมหานคร 10303</p>
-                        <p>โทรศัพท์: 02-999-9000</p>
-                        <p>เว็บไซต์: asradio104mhz.vercel.app</p>
-                        <p>อีเมล: asradio104mhz@gmail.com</p>
-                    </div>
-                </div>
-                <div class="footer-column contact-column">
-                    <p class="footer-title">ติดตาม สถานีวิทยุอ.ส. ได้ที่:</p>
-                    <div class="social-icons footer-social-icons">
-                        <a href="https://www.facebook.com/share/19ncwMMy7K/" target="_blank" class="social-link footer-facebook-link">
-                            <i class="fa-brands fa-facebook fa-xl"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@Asradio-104" target="_blank" class="social-link footer-youtube-link">
-                            <i class="fa-brands fa-youtube fa-xl"></i>
-                        </a>
-                    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column logo-column">
+                <img src="pic/logo2.png" alt="Footer Logo" class="footer-logo">
+            </div>
+            <div class="footer-column info-column">
+                <p class="footer-title">สถานีวิทยุ อ.ส. พระราชวังดุสิต สวนจิตรลดา</p>
+                <div class="footer-info-details">
+                    <p>ที่อยู่: สวนจิตรลดา แขวงดุสิต เขตดุสิต กรุงเทพมหานคร 10303</p>
+                    <p>โทรศัพท์: 02-999-9000</p>
+                    <p>เว็บไซต์: asradio104mhz.vercel.app</p>
+                    <p>อีเมล: asradio104mhz@gmail.com</p>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 สถานีวิทยุ อ.ส. พระราชวังดุสิต. All Rights Reserved.
+            <div class="footer-column contact-column">
+                <p class="footer-title">ติดตาม สถานีวิทยุอ.ส. ได้ที่:</p>
+                <div class="social-icons footer-social-icons">
+                    <a href="https://www.facebook.com/share/19ncwMMy7K/" target="_blank" class="social-link footer-facebook-link">
+                        <i class="fa-brands fa-facebook fa-xl"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@Asradio-104" target="_blank" class="social-link footer-youtube-link">
+                        <i class="fa-brands fa-youtube fa-xl"></i>
+                    </a>
+                </div>
             </div>
-        </footer>
-   
+        </div>
+        <div class="copyright">
+            &copy; 2025 สถานีวิทยุ อ.ส. พระราชวังดุสิต. All Rights Reserved.
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
