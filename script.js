@@ -2,32 +2,39 @@ let slideIndex = 1;
 let autoSlideInterval;
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. จัดการเครื่องเล่นวิทยุออนไลน์
-    const audio = document.querySelector('audio');
-    const userInteractedKey = 'userInteracted';
+    // 1. จัดการเครื่องเล่นวิทยุออนไลน์ (ระบุ ID ให้ชัดเจน)
+    const audio = document.getElementById('myRadio');
+    const status = document.getElementById('status');
 
-    if (localStorage.getItem(userInteractedKey) === 'true') {
-        audio.play().then(() => {
-            console.log('Playing automatically after refresh.');
-        }).catch(error => {
-            console.error('Autoplay failed after refresh:', error);
-        });
+    // ฟังก์ชันสั่งเล่น
+    function playAudio() {
+        if (audio) {
+            audio.play().then(() => {
+                if (status) status.innerText = "สถานะ: กำลังเล่นออนไลน์";
+                console.log('Radio is playing');
+                // เล่นได้แล้วให้หยุดดักฟังการคลิก
+                document.removeEventListener('click', playAudio);
+                document.removeEventListener('touchstart', playAudio);
+            }).catch(error => {
+                console.log('Waiting for user interaction...');
+            });
+        }
     }
 
-    document.addEventListener('click', function recordInteraction() {
-        localStorage.setItem(userInteractedKey, 'true');
-        audio.play().catch(error => {
-            console.error('Failed to play on first interaction:', error);
-        });
-        document.removeEventListener('click', recordInteraction);
-    });
+    // ดักจับการคลิกครั้งแรกในหน้าเว็บเพื่อเริ่มเพลง
+    document.addEventListener('click', playAudio);
+    document.addEventListener('touchstart', playAudio);
+
+    // พยายามเล่นทันที (เผื่อกรณี Browser ยอม)
+    playAudio();
 
     // 2. จัดการ Hamburger Menu
     const hamburgerBtn = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.header-right-side');
 
     if (hamburgerBtn && navMenu) {
-        hamburgerBtn.addEventListener('click', function() {
+        hamburgerBtn.addEventListener('click', function(e) {
+            e.stopPropagation(); // กันไม่ให้ไปทับกับ event อื่น
             hamburgerBtn.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
@@ -37,78 +44,63 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlides(slideIndex);
     startAutoSlideshow();
 
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'ArrowLeft') {
-            plusSlides(-1);
-        } else if (event.key === 'ArrowRight') {
-            plusSlides(1);
-        }
-    });
-
-    const slideshowContainer = document.querySelector('.slideshow-container');
-    if (slideshowContainer) {
-        slideshowContainer.addEventListener('mouseenter', function() {
-            if (autoSlideInterval) {
-                clearInterval(autoSlideInterval);
-            }
-        });
-
-        slideshowContainer.addEventListener('mouseleave', function() {
-            startAutoSlideshow();
-        });
-    }
-
     // 4. จัดการวันที่และเวลา
     updateDateTime();
     setInterval(updateDateTime, 1000);
 });
 
-// ฟังก์ชันสำหรับเปลี่ยนสไลด์ตามจำนวนที่กำหนด (n)
+// ฟังก์ชันสำหรับเปลี่ยนสไลด์
 function plusSlides(n) {
-    if (autoSlideInterval) {
-        clearInterval(autoSlideInterval);
-    }
     showSlides(slideIndex += n);
-    startAutoSlideshow();
 }
 
-// ฟังก์ชันหลักที่ใช้แสดงผลสไลด์
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
 function showSlides(n) {
+    let i;
     let slides = document.getElementsByClassName("mySlides");
     let dots = document.getElementsByClassName("dot");
 
-    if (n > slides.length) {
-        slideIndex = 1;
-    }
-    if (n < 1) {
-        slideIndex = slides.length;
-    }
+    if (!slides || slides.length === 0) return;
+    
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
 
-    for (let i = 0; i < slides.length; i++) {
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; 
         slides[i].style.opacity = "0";
     }
-
-    if (dots.length > 0) {
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        dots[slideIndex - 1].className += " active";
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
     }
 
-    slides[slideIndex - 1].style.opacity = "1";
+    slides[slideIndex - 1].style.display = "block";
+    // ใช้ setTimeout เล็กน้อยเพื่อให้ Transition ทำงาน
+    setTimeout(() => {
+        slides[slideIndex - 1].style.opacity = "1";
+    }, 50);
+    
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].className += " active";
+    }
 }
 
-// ฟังก์ชันเพื่อเริ่มการแสดงสไลด์อัตโนมัติ
 function startAutoSlideshow() {
+    // ล้างของเก่าก่อนสร้างใหม่ กันมันซ้อนกัน
+    if (autoSlideInterval) clearInterval(autoSlideInterval);
     autoSlideInterval = setInterval(function() {
         plusSlides(1);
     }, 5000);
 }
 
-// ฟังก์ชันเพื่ออัปเดตวันที่และเวลาปัจจุบัน
 function updateDateTime() {
     const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    const options = { 
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 
+        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false 
+    };
     const formattedDate = now.toLocaleDateString('th-TH', options);
     const dateElement = document.getElementById('current-date');
 
