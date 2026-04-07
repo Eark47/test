@@ -99,9 +99,8 @@ body {
     width: 100%;
     position: relative;
     overflow: hidden;
-    height: 600px; /* ปรับความสูงที่เหมาะสม */
-    margin-top: 100px; 
-    
+   aspect-ratio: 16 / 9; 
+    margin-top: 100px;
 }
 .mySlides {
     position: absolute;
@@ -115,8 +114,8 @@ body {
 .mySlides img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* ทำให้ภาพเต็มพื้นที่ container */
-    object-position: center top;
+    object-fit: cover; /* ทำให้ภาพเต็มพื้นที่ container */
+    object-position: center;
     background-color: transparent;
 }
 .mySlides.active {
@@ -313,7 +312,7 @@ body {
     display: block; /* แสดงรูปภาพสำหรับคอมพิวเตอร์ */
     width: 100%;
     height: 100%;
-    object-fit: contain; /* หรือ cover หากต้องการให้เต็มจอ */
+    object-fit: cover; /* หรือ cover หากต้องการให้เต็มจอ */
 }
 
 
@@ -501,8 +500,7 @@ body {
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
-/* จัดการ Layout ตัวเล่นใหม่ให้กะทัดรัด */
-/* คอนเทนเนอร์หลักของตัวเล่นวิทยุ */
+
 .custom-player-container {
     display: flex;
     align-items: center;
