@@ -23,35 +23,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const bufferBar = document.getElementById('bufferBar');
     const currentTimeDisplay = document.getElementById('currentTime');
 
-    // ตัวแปรสำคัญ: ใช้เช็คว่า "ได้เริ่มเล่นครั้งแรกไปหรือยัง"
     let isFirstPlayDone = false;
 
-    // ฟังก์ชันเล่นครั้งแรก (เมื่อคลิกตรงไหนก็ได้ของเว็บ)
+    // --- ฟังก์ชันเล่นครั้งแรก (คลิกตรงไหนก็ได้) ---
     function playOnFirstInteraction() {
         if (!isFirstPlayDone && audio.paused) {
-            isFirstPlayDone = true; // ล็อคทันทีห้ามรันซ้ำ
+            isFirstPlayDone = true;
             audio.src = "https://radio9.plathong.net/7194/stream?t=" + new Date().getTime();
             audio.play().then(() => {
                 if (playIcon) playIcon.classList.replace('fa-play', 'fa-pause');
                 if (statusText) { statusText.innerText = "ON AIR"; statusText.style.color = "red"; }
-            }).catch(err => {
-                isFirstPlayDone = false; // ถ้าเบราว์เซอร์ยังบล็อก ให้ปลดล็อคเพื่อรอคลิกถัดไป
-            });
+            }).catch(err => { isFirstPlayDone = false; });
         }
     }
 
-    // --- ดักจับการคลิก "ครั้งแรก" ทั่วทั้งหน้าเว็บ ---
     document.body.addEventListener('click', playOnFirstInteraction, { once: true });
-    // สำหรับมือถือ (ถ้าอยากให้แตะแล้วเล่นเลย)
     document.body.addEventListener('touchstart', playOnFirstInteraction, { once: true });
 
-
-    // --- 3. ระบบควบคุมปุ่ม Play/Pause (ปุ่มนี้ต้องใหญ่กว่าและหยุดได้จริง) ---
+    // --- 3. ระบบควบคุมปุ่ม Play/Pause (ปุ่มต้องหยุดได้จริง) ---
     if (playBtn && audio) {
         playBtn.onclick = function(e) {
-            e.stopPropagation(); // สำคัญมาก: ป้องกันไม่ให้ Event วิ่งไปโดน body จนรวน
-            isFirstPlayDone = true; // ถ้ากดปุ่มเล่นเอง ให้ถือว่าการ Interact ครั้งแรกเสร็จสิ้นแล้ว
-
+            e.stopPropagation();
+            isFirstPlayDone = true;
             if (audio.paused) {
                 audio.src = "https://radio9.plathong.net/7194/stream?t=" + new Date().getTime();
                 audio.play().then(() => {
@@ -60,14 +53,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             } else {
                 audio.pause();
-                audio.src = ""; // ตัด Stream ทันที
+                audio.src = "";
                 if (playIcon) playIcon.classList.replace('fa-pause', 'fa-play');
                 if (statusText) { statusText.innerText = "LIVE ONLINE"; statusText.style.color = "#444"; }
             }
         };
     }
 
-    // --- ส่วนงานอื่นๆ (เวลา, สไลด์, อากาศ) ---
+    // --- 4. ระบบลดเสียง (Volume Slider) - แก้จุดที่ใช้ไม่ได้ ---
+    if (volumeSlider && audio) {
+        // ตั้งค่าระดับเสียงเริ่มต้นให้ตรงกับ Slider
+        audio.volume = volumeSlider.value; 
+        
+        volumeSlider.oninput = function(e) {
+            audio.volume = e.target.value;
+            console.log("ระดับเสียง:", e.target.value);
+        };
+    }
+
+    // --- 5. ระบบเวลา (Current Time) และ Buffer - แก้จุดที่ไม่เดิน ---
+    if (audio) {
+        audio.ontimeupdate = function() {
+            // คำนวณเวลาที่เล่นไป
+            const seconds = Math.floor(audio.currentTime);
+            const minutes = Math.floor(seconds / 60);
+            const displaySec = (seconds % 60).toString().padStart(2, '0');
+            const displayMin = minutes.toString().padStart(2, '0');
+            
+            if (currentTimeDisplay) {
+                currentTimeDisplay.innerText = `${displayMin}:${displaySec}`;
+            }
+            
+            // แถบ Buffer (หลอกให้วิ่งวนไปตามวินาที)
+            if (bufferBar) {
+                bufferBar.style.width = ((seconds % 60) / 60 * 100) + "%";
+            }
+        };
+    }
+
+    // --- รันงานอื่นๆ ---
     updateDateTime();
     setInterval(updateDateTime, 1000);
     showSlides(slideIndex);
@@ -75,10 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchThailandWeather();
     fetchBangkokAir();
     
-    // ... ส่วนที่เหลือ (Volume, TimeUpdate) เหมือนเดิมได้เลยค่ะ ...
-
-    // ระบบเมนูมือถือ
-    const hamburgerBtn = document.querySelector('.hamburger-menu');
+   const hamburgerBtn = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.header-right-side');
     if (hamburgerBtn && navMenu) {
         hamburgerBtn.onclick = function() {
