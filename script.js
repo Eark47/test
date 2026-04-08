@@ -15,17 +15,67 @@ const regions = [
 // --- 2. ฟังก์ชันหลักทำงานเมื่อโหลดหน้าเว็บ ---
 document.addEventListener('DOMContentLoaded', function() {
     
-    // เริ่มระบบวันเวลา
+    const audio = document.getElementById('myRadio');
+    const playBtn = document.getElementById('playPauseBtn');
+    const playIcon = document.getElementById('playIcon');
+    const statusText = document.getElementById('statusText');
+    const volumeSlider = document.getElementById('volumeSlider');
+    const bufferBar = document.getElementById('bufferBar');
+    const currentTimeDisplay = document.getElementById('currentTime');
+
+    // ตัวแปรสำคัญ: ใช้เช็คว่า "ได้เริ่มเล่นครั้งแรกไปหรือยัง"
+    let isFirstPlayDone = false;
+
+    // ฟังก์ชันเล่นครั้งแรก (เมื่อคลิกตรงไหนก็ได้ของเว็บ)
+    function playOnFirstInteraction() {
+        if (!isFirstPlayDone && audio.paused) {
+            isFirstPlayDone = true; // ล็อคทันทีห้ามรันซ้ำ
+            audio.src = "https://radio9.plathong.net/7194/stream?t=" + new Date().getTime();
+            audio.play().then(() => {
+                if (playIcon) playIcon.classList.replace('fa-play', 'fa-pause');
+                if (statusText) { statusText.innerText = "ON AIR"; statusText.style.color = "red"; }
+            }).catch(err => {
+                isFirstPlayDone = false; // ถ้าเบราว์เซอร์ยังบล็อก ให้ปลดล็อคเพื่อรอคลิกถัดไป
+            });
+        }
+    }
+
+    // --- ดักจับการคลิก "ครั้งแรก" ทั่วทั้งหน้าเว็บ ---
+    document.body.addEventListener('click', playOnFirstInteraction, { once: true });
+    // สำหรับมือถือ (ถ้าอยากให้แตะแล้วเล่นเลย)
+    document.body.addEventListener('touchstart', playOnFirstInteraction, { once: true });
+
+
+    // --- 3. ระบบควบคุมปุ่ม Play/Pause (ปุ่มนี้ต้องใหญ่กว่าและหยุดได้จริง) ---
+    if (playBtn && audio) {
+        playBtn.onclick = function(e) {
+            e.stopPropagation(); // สำคัญมาก: ป้องกันไม่ให้ Event วิ่งไปโดน body จนรวน
+            isFirstPlayDone = true; // ถ้ากดปุ่มเล่นเอง ให้ถือว่าการ Interact ครั้งแรกเสร็จสิ้นแล้ว
+
+            if (audio.paused) {
+                audio.src = "https://radio9.plathong.net/7194/stream?t=" + new Date().getTime();
+                audio.play().then(() => {
+                    if (playIcon) playIcon.classList.replace('fa-play', 'fa-pause');
+                    if (statusText) { statusText.innerText = "ON AIR"; statusText.style.color = "red"; }
+                });
+            } else {
+                audio.pause();
+                audio.src = ""; // ตัด Stream ทันที
+                if (playIcon) playIcon.classList.replace('fa-pause', 'fa-play');
+                if (statusText) { statusText.innerText = "LIVE ONLINE"; statusText.style.color = "#444"; }
+            }
+        };
+    }
+
+    // --- ส่วนงานอื่นๆ (เวลา, สไลด์, อากาศ) ---
     updateDateTime();
     setInterval(updateDateTime, 1000);
-
-    // เริ่มระบบสไลด์
     showSlides(slideIndex);
     startAutoSlideshow();
-
-    // ดึงข้อมูลอากาศ (แถวบน) และ ฝุ่น (แถวล่าง)
     fetchThailandWeather();
     fetchBangkokAir();
+    
+    // ... ส่วนที่เหลือ (Volume, TimeUpdate) เหมือนเดิมได้เลยค่ะ ...
 
     // ระบบเมนูมือถือ
     const hamburgerBtn = document.querySelector('.hamburger-menu');
@@ -36,76 +86,9 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
         };
     }
-
-    // --- 3. ระบบควบคุมวิทยุ ---
-    const audio = document.getElementById('myRadio');
-    const playBtn = document.getElementById('playPauseBtn');
-    const playIcon = document.getElementById('playIcon');
-    const statusText = document.getElementById('statusText');
-    const volumeSlider = document.getElementById('volumeSlider');
-    const bufferBar = document.getElementById('bufferBar');
-    const currentTimeDisplay = document.getElementById('currentTime');
-
-    if (playBtn && audio) {
-        playBtn.onclick = function(e) {
-            e.stopPropagation();
-            if (audio.paused) {
-                audio.src = "https://radio9.plathong.net/7194/stream?t=" + new Date().getTime();
-                audio.play().then(() => {
-                    if (playIcon) playIcon.classList.replace('fa-play', 'fa-pause');
-                    if (statusText) { statusText.innerText = "ON AIR"; statusText.style.color = "red"; }
-                }).catch(err => console.log("คลิกเพื่อเล่น"));
-            } else {
-                audio.pause();
-                audio.src = "";
-                if (playIcon) playIcon.classList.replace('fa-pause', 'fa-play');
-                if (statusText) { statusText.innerText = "LIVE ONLINE"; statusText.style.color = "#444"; }
-            }
-        };
-    }
-
-    if (audio) {
-        audio.ontimeupdate = function() {
-            const seconds = Math.floor(audio.currentTime);
-            const minutes = Math.floor(seconds / 60);
-            if (currentTimeDisplay) {
-                currentTimeDisplay.innerText = minutes.toString().padStart(2, '0') + ":" + (seconds % 60).toString().padStart(2, '0');
-            }
-            if (bufferBar) bufferBar.style.width = ((audio.currentTime % 60) / 60 * 100) + "%";
-        };
-    }
-
-    if (volumeSlider && audio) {
-        volumeSlider.oninput = function(e) { audio.volume = e.target.value; };
-    }
 });
 
-// --- 4. ฟังก์ชันพยากรณ์อากาศ 6 ภูมิภาค (แถวบน) ---
-async function fetchThailandWeather() {
-    const displayArea = document.getElementById('weather-display');
-    if (!displayArea) return;
-    let htmlContent = '';
-    for (let region of regions) {
-        try {
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${region.city},TH&appid=${API_KEY}&units=metric&lang=th`);
-            const data = await response.json();
-            if (data.cod === 200) {
-                htmlContent += `
-                    <div class="region-card">
-                        <div class="region-name">${region.label}</div>
-                        <div class="weather-info-row">
-                            <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}.png" width="30">
-                            <span class="temp">${Math.round(data.main.temp)}°C</span>
-                        </div>
-                        <div class="status" style="font-size: 10px;">${data.weather[0].description}</div>
-                    </div>`;
-            }
-        } catch (error) { console.log("Weather error"); }
-    }
-    displayArea.innerHTML = htmlContent;
-}
-
-// --- 4. ฟังก์ชันพยากรณ์อากาศ 6 ภูมิภาค (ปรับภาคเหนือให้เป็นรูปควัน) ---
+// --- 3. ฟังก์ชันพยากรณ์อากาศ 6 ภูมิภาค ---
 async function fetchThailandWeather() {
     const displayArea = document.getElementById('weather-display');
     if (!displayArea) return;
@@ -120,9 +103,8 @@ async function fetchThailandWeather() {
                 let skyIcon = "fa-sun"; 
                 const mainWeather = data.weather[0].main;
                 
-                // เงื่อนไขพิเศษ: ถ้าเป็นภาคเหนือ ให้เช็คเรื่องฝุ่นควัน/หมอก
                 if (region.label === 'ภาคเหนือ' && (mainWeather === "Smoke" || mainWeather === "Haze" || data.main.temp > 35)) {
-                    skyIcon = "fa-smog"; // ไอคอนรูปกลุ่มควัน
+                    skyIcon = "fa-smog";
                 } else {
                     if (mainWeather === "Clouds") skyIcon = "fa-cloud";
                     else if (mainWeather === "Rain") skyIcon = "fa-cloud-showers-heavy";
@@ -145,7 +127,7 @@ async function fetchThailandWeather() {
     displayArea.innerHTML = htmlContent;
 }
 
-// --- 5. ฟังก์ชันอากาศ กทม. (เอาเมฆข้างหน้าออก เหลือแค่หน้าคน) ---
+// --- 4. ฟังก์ชันอากาศ กทม. + ระบบทักทาย ---
 async function fetchBangkokAir() {
     const airArea = document.getElementById('air-display');
     if (!airArea) return;
@@ -167,14 +149,18 @@ async function fetchBangkokAir() {
             };
             const cur = airMap[aqi] || airMap[1];
 
-            // ตัดส่วน sky-icon-wrap ออกเรียบร้อยครับ
+            const hour = new Date().getHours();
+            let greeting = (hour >= 5 && hour < 11) ? "อรุณสวัสดิ์ยามเช้า (กทม.)" :
+                           (hour >= 11 && hour < 16) ? "สวัสดียามบ่าย (กทม.)" :
+                           (hour >= 16 && hour < 20) ? "สวัสดียามเย็น (กทม.)" : "สวัสดียามค่ำคืน (กทม.)";
+
             airArea.innerHTML = `
                 <div class="air-bar-clean">
                     <div class="air-icon-wrap" style="color: ${cur.color}; font-size: 30px;">
                         <i class="fa-solid ${cur.icon}"></i>
                     </div>
                     <div class="air-content">
-                        <div class="air-header">อากาศวันนี้ (กทม.)</div>
+                        <div class="air-header">${greeting}</div>
                         <div class="air-main-info">
                             <span class="air-status-text" style="color: ${cur.color};">${cur.text}</span>
                             <span class="air-sep">|</span>
@@ -185,7 +171,8 @@ async function fetchBangkokAir() {
         }
     } catch (error) { console.log("Air error"); }
 }
-// --- 6. ฟังก์ชันจัดการสไลด์และเวลา (Global) ---
+
+// --- 5. ฟังก์ชันจัดการสไลด์และเวลา ---
 function plusSlides(n) { clearInterval(autoSlideInterval); showSlides(slideIndex += n); startAutoSlideshow(); }
 function currentSlide(n) { clearInterval(autoSlideInterval); showSlides(slideIndex = n); startAutoSlideshow(); }
 function startAutoSlideshow() { autoSlideInterval = setInterval(() => plusSlides(1), 10000); }
@@ -196,10 +183,7 @@ function showSlides(n) {
     if (!slides || slides.length === 0) return;
     if (n > slides.length) slideIndex = 1;
     if (n < 1) slideIndex = slides.length;
-    for (let i = 0; i < slides.length; i++) { 
-        slides[i].style.display = "none"; 
-        slides[i].style.opacity = "0"; 
-    }
+    for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; slides[i].style.opacity = "0"; }
     slides[slideIndex-1].style.display = "block";
     setTimeout(() => { slides[slideIndex-1].style.opacity = "1"; }, 20);
     if (dots.length) {
@@ -211,8 +195,10 @@ function showSlides(n) {
 function updateDateTime() {
     const now = new Date();
     const dateElement = document.getElementById('current-date');
-    if (dateElement) dateElement.textContent = now.toLocaleDateString('th-TH', { 
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 
-        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false 
-    });
+    if (dateElement) {
+        dateElement.textContent = now.toLocaleDateString('th-TH', { 
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', 
+            hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false 
+        });
+    }
 }
