@@ -762,3 +762,7 @@ body {
         padding: 8px 20px;
     }
 }
+html {
+    -webkit-filter: grayscale(80%);
+    filter: grayscale(80%);
+}
